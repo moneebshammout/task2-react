@@ -1,9 +1,13 @@
 import React from 'react';
-import * as constants from './constants';
+import NavBar from 'Components/NavBar/NavBar';
+import GlobalStyle from './App.style';
 
 function App() {
-  return <div style={{ color: constants.Dark_Blue }}>moneeb</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <NavBar />
+    </>
+  );
 }
-//  nav color
-// "moneeb"
 export default App;
