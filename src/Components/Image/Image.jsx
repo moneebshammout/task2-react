@@ -1,12 +1,20 @@
-// import React from 'react';
-// import StyledImage from './Image.Style';
+import { React, PropTypes } from 'reuse/Packages';
 
-// function Image() {
-//   return (
-//       <StyledImage>
-//         <img src="assets/images/logo.jpg" alt="Logo" />
-//       </StyledImage>
-//   );
-// }
+import StyledImage from './Image.Style';
 
-// export default Image;
+/**
+ * @description return Image component
+ * @param {string} imagePath   absolute path of the Image
+ * @returns {JSX}  Image component
+ */
+function Image({ imagePath }) {
+  return (
+    <StyledImage>
+      <img src={imagePath} alt="Logo" />
+    </StyledImage>
+  );
+}
+Image.propTypes = {
+  imagePath: PropTypes.string.isRequired,
+};
+export default Image;

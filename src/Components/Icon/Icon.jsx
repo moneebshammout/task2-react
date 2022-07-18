@@ -1,16 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { React, PropTypes } from 'reuse/Packages';
 import * as Heroicons from 'react-icons/hi';
-import StyledIcon from './icon.style';
+import StyledIcon from './Icon.Style';
 
-function Icon({ iconName, iconFamily }) {
-  const generatedIcon = React.createElement(
-    iconFamily === 'hi' ? Heroicons[iconName] : Heroicons[iconName]
+const icons = {
+  HiOutlineMenu: <Heroicons.HiOutlineMenu />,
+  HiSearch: <Heroicons.HiSearch />,
+  HiUser: <Heroicons.HiUser />,
+};
+/**
+ * @description return Icon component
+ * @param {string} iconName   name of the icon
+ * @param {string} color name of icon color
+ * @param {Function} onClick on click handler
+ * @returns {JSX}  icon component
+ */
+function Icon({ iconName, color, onClick }) {
+  return (
+    <StyledIcon theme={color} onClick={onClick}>
+      {icons[iconName]}
+    </StyledIcon>
   );
-  return <StyledIcon>{generatedIcon}</StyledIcon>;
 }
 Icon.propTypes = {
-  iconFamily: PropTypes.string.isRequired,
+  // iconFamily: PropTypes.string.isRequired,
+  color: PropTypes.string,
   iconName: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+Icon.defaultProps = {
+  color: 'white',
+  onClick: null,
 };
 export default Icon;
