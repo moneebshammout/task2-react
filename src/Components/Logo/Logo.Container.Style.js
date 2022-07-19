@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'reuse/Packages';
 
 const LogoContainer = styled.div`
   @media (min-width: 25rem) {

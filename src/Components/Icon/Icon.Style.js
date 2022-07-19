@@ -2,7 +2,9 @@ import { styled } from 'reuse/Packages';
 import * as constants from 'reuse/Constants';
 
 const theme = {
+  black: constants.Black,
   blue: constants.Light_Blue,
+  grey: constants.Grey,
   white: constants.White,
 };
 const StyledIcon = styled.i`

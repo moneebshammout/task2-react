@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'reuse/Packages';
 // import * as constants from 'Constants';
 
 const StyledImage = styled.header`

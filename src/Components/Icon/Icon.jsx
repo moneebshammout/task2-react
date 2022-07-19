@@ -1,9 +1,12 @@
 import { React, PropTypes } from 'reuse/Packages';
 import * as Heroicons from 'react-icons/hi';
+import * as AIicons from 'react-icons/ai';
 import StyledIcon from './Icon.Style';
 
 const icons = {
+  AiOutlineClose: <AIicons.AiOutlineClose />,
   HiOutlineMenu: <Heroicons.HiOutlineMenu />,
+  HiOutlineTrendingUp: <Heroicons.HiOutlineTrendingUp />,
   HiSearch: <Heroicons.HiSearch />,
   HiUser: <Heroicons.HiUser />,
 };
