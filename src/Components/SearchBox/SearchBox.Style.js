@@ -6,7 +6,6 @@ const StyledSearchBox = styled.div`
     width: 100%;
     height: 2.75rem;
     display: flexbox;
-
     align-items: center;
     justify-content: center;
     color: grey;

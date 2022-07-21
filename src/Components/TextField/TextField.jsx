@@ -1,23 +1,18 @@
-import { React, PropTypes, useRef } from 'reuse/Packages';
+import { React, forwardRef, PropTypes } from 'reuse/Packages';
 import StyledTextField from './TextField.Style';
 /**
- * @description return TextField component
+ * @description   creates a textfield jsx with a forworded reference
  * @param {string} placeHolder placeHolder
- * @param {Function}  forwordRefCallback forwording ref to HOC
+ * @param {node}  forwordRef forwording ref to HOC
  * @returns {JSX}  TextField component
  */
-function TextField({ placeHolder, forwordRefCallback }) {
-  const ref = useRef(null);
-  return (
-    <StyledTextField
-      placeholder={placeHolder}
-      ref={ref}
-      onChange={() => forwordRefCallback(ref)}
-    />
-  );
-}
+const TextField = forwardRef((props, forwordedRef) => (
+  <StyledTextField placeholder={props.placeHolder} ref={forwordedRef} />
+));
 TextField.propTypes = {
-  forwordRefCallback: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  forwordedRef: PropTypes.object.isRequired,
   placeHolder: PropTypes.string.isRequired,
 };
+
 export default TextField;

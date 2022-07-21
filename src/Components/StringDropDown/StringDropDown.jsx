@@ -1,32 +1,32 @@
 import { React, PropTypes } from 'reuse/Packages';
 import Button from 'Components/Button/Button';
-import StyledDropDown from './Drop.Down.Style';
+import StyledStringDropDown from './String.Drop.Down.Style';
 
 /**
- * @description return DropDown component depending on the theme chosed
+ * @description return StringDropDown component depending on the theme chosed
  * @param {bool} visibility   show or hide menu
- * @param {arrayOf<String>} content   array of strings displayed in dropdown
+ * @param {arrayOf<String>} content   array of strings displayed in StringDropDown
  * @param {String} theme  theme type of buttons
- * @returns {JSX}  DropDown component
+ * @returns {JSX}  StringDropDown component
  */
-function DropDown({ visibility, content, theme }) {
+function StringDropDown({ visibility, content, theme }) {
   return (
     visibility && (
-      <StyledDropDown>
+      <StyledStringDropDown>
         {content.map((sentence) => (
           <Button key={sentence} text={sentence} theme={theme} />
         ))}
-      </StyledDropDown>
+      </StyledStringDropDown>
     )
   );
 }
-DropDown.propTypes = {
+StringDropDown.propTypes = {
   content: PropTypes.arrayOf(PropTypes.string).isRequired,
   theme: PropTypes.string,
   visibility: PropTypes.bool.isRequired,
 };
-DropDown.defaultProps = {
+StringDropDown.defaultProps = {
   theme: 'smallWhite',
 };
 
-export default DropDown;
+export default StringDropDown;

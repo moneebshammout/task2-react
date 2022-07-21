@@ -1,5 +1,6 @@
-import React from 'react';
+import { React } from 'reuse/Packages';
 import NavBar from 'Components/NavBar/NavBar';
+import Body from 'Components/Body/Body';
 import GlobalStyle from './App.style';
 
 /**
@@ -12,6 +13,7 @@ function App() {
     <>
       <GlobalStyle />
       <NavBar />
+      <Body />
     </>
   );
 }

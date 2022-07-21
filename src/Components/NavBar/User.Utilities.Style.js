@@ -12,7 +12,7 @@ const StyledUserUtilities = styled.div`
     width: 12rem;
     height: 6rem;
     box-shadow: 0.01rem 0.01rem 0.01rem 0.01rem grey;
-
+    box-shadow: rgba(0, 0, 0, 0.24) 0.1rem 0.1rem 0.1rem 0.1rem;
     justify-content: space-between;
 
     white-space: nowrap;

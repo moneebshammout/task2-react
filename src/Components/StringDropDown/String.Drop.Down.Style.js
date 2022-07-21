@@ -1,7 +1,7 @@
 import { styled } from 'reuse/Packages';
 import * as constants from 'reuse/Constants';
 
-const StyledDropDown = styled.div`
+const StyledStringDropDown = styled.div`
   @media (min-width: 25rem) {
     display: flex;
     flex-direction: column;
@@ -11,4 +11,4 @@ const StyledDropDown = styled.div`
     padding-bottom: 1rem;
   }
 `;
-export default StyledDropDown;
+export default StyledStringDropDown;

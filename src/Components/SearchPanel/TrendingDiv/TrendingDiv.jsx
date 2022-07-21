@@ -8,10 +8,12 @@ import StyledSTrendingDiv from './TrendingDiv.style';
 function TrendingDiv() {
   return (
     <StyledSTrendingDiv>
-      <Icon iconName="HiOutlineTrendingUp" color="Black" />
+      <Icon iconName="HiOutlineTrendingUp" color="black" />
+      &nbsp;
       <span>Trending</span>
     </StyledSTrendingDiv>
   );
 }
+// source sans pro 600
 
 export default TrendingDiv;

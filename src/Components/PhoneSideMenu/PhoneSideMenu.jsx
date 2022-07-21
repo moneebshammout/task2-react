@@ -1,6 +1,6 @@
 import { React, PropTypes, useEffect, useRef, useState } from 'reuse/Packages';
 import Button from 'Components/Button/Button';
-import DropDownMenu from 'Components/DropDown/DropDown';
+import DropDownMenu from 'Components/StringDropDown/StringDropDown';
 import StyledPhoneMenu from './menu.style';
 
 const moviesContent = ['Popular', 'Top Rated', 'Upcoming', 'Now Playing'];

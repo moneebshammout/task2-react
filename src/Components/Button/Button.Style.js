@@ -3,17 +3,20 @@ import * as constants from 'reuse/Constants';
 
 const bigWhite = css`
   font-size: 1.3rem;
+  font-weight: 600;
   width: 8rem;
   height: 2.5rem;
 `;
 const smallFade = css`
   font-size: 1rem;
   opacity: 0.5;
+  font-weight: 600;
   padding-left: 0.5rem;
   padding-bottom: 0.7rem;
 `;
 const smallWhite = css`
   font-size: 1rem;
+  font-weight: 400;
   padding-left: 0.5rem;
   padding-bottom: 0.7rem;
 `;
@@ -37,6 +40,7 @@ const StyledButton = styled.button`
   @media (min-width: 25rem) {
     display: flex;
     background-color: transparent;
+
     color: ${constants.White};
     border: none;
     ${(props) => themes[props.theme]}

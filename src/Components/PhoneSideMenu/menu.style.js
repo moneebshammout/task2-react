@@ -39,6 +39,7 @@ const StyledPhoneMenu = styled.div`
     width: 85%;
     height: 100%;
     padding: 0.8rem;
+    margin-top: 4rem;
     position: fixed;
     ${(props) =>
       props.firstRender

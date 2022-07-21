@@ -1,4 +1,4 @@
-import { React, PropTypes } from 'reuse/Packages';
+import { React, PropTypes, useRef } from 'reuse/Packages';
 import Icon from 'Components/Icon/Icon';
 import TextField from 'Components/TextField/TextField';
 import StyledSearchBox from './SearchBox.Style';
@@ -10,15 +10,7 @@ import StyledSearchBox from './SearchBox.Style';
  * @returns {JSX}  TextField component
  */
 function SearchBox({ leftIcon, rightIcon, placeHolder }) {
-  let searchFeildController;
-  /**
-   * @description return TextField ref
-   * @param {object} ref  text field ref oobject
-   * @returns {object}  return ref
-   */
-  const getTextFieldRef = (ref) => {
-    searchFeildController = ref;
-  };
+  const searchFeildController = useRef('');
   /**
    * @description empty search text field
    * @returns {null}
@@ -30,10 +22,7 @@ function SearchBox({ leftIcon, rightIcon, placeHolder }) {
     <StyledSearchBox>
       <>
         <Icon iconName={leftIcon} color="black" />
-        <TextField
-          placeHolder={placeHolder}
-          forwordRefCallback={getTextFieldRef}
-        />
+        <TextField placeHolder={placeHolder} ref={searchFeildController} />
         <Icon
           iconName={rightIcon}
           onClick={onClickRightIconHandler}

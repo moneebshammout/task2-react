@@ -5,6 +5,8 @@ import StyledIcon from './Icon.Style';
 
 const icons = {
   AiOutlineClose: <AIicons.AiOutlineClose />,
+  HiOutlineChevronDown: <Heroicons.HiOutlineChevronDown />,
+  HiOutlineChevronRight: <Heroicons.HiOutlineChevronRight />,
   HiOutlineMenu: <Heroicons.HiOutlineMenu />,
   HiOutlineTrendingUp: <Heroicons.HiOutlineTrendingUp />,
   HiSearch: <Heroicons.HiSearch />,
