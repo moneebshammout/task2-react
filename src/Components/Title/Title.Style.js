@@ -1,19 +1,25 @@
 import { styled, css } from 'reuse/Packages';
 
-const lightTitle = css`
+const light = css`
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 300;
 `;
-const boldTitle = css`
+const medium = css`
+  font-size: 1rem;
+  font-weight: 400;
+`;
+const bold = css`
   font-size: 1.6rem;
   font-weight: 600;
 `;
+const theme = {
+  bold,
+  light,
+  medium,
+};
 const StyledTitle = styled.h2`
   display: flex;
-  ${(props) =>
-    props.theme === 'light'
-      ? lightTitle
-      : boldTitle}/* @media (min-width: 25rem) {
+  ${(props) => theme[props.theme]}/* @media (min-width: 25rem) {
     width: 100%;
     height: auto;
   } */

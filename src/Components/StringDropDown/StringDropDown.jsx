@@ -1,7 +1,6 @@
 import { React, PropTypes } from 'reuse/Packages';
 import Button from 'Components/Button/Button';
 import StyledStringDropDown from './String.Drop.Down.Style';
-
 /**
  * @description return StringDropDown component depending on the theme chosed
  * @param {bool} visibility   show or hide menu
@@ -28,5 +27,4 @@ StringDropDown.propTypes = {
 StringDropDown.defaultProps = {
   theme: 'smallWhite',
 };
-
 export default StringDropDown;

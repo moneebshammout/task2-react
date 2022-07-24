@@ -12,7 +12,6 @@ const StyledHeader = styled.header`
 const StyledNavBar = styled.nav`
   @media (min-width: 25rem) {
     display: flexbox;
-
     flex-direction: row;
     height: 4rem;
     align-items: center;

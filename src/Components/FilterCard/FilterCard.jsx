@@ -1,27 +1,38 @@
-import { React, PropTypes } from 'reuse/Packages';
-import Title from 'Components/Title/Title';
-import SelectMenu from 'Components/SelectMenu/SelectMenu';
+import { React, PropTypes, useState } from 'reuse/Packages';
 import FilterVisilbeContent from 'Components/FilterVisilbeContent/FilterVisilbeContent';
 import StyledFilterCard from './FilterCard.Style';
 
 /**
  * @description return FilterCard component
  * @param {String} title  title text
+ * @param {function} onClick  handel click event
+ * @param {ArrauOf(element)} children  children elements jsx
  * @returns {JSX}  FilterDropDown component
  */
-function FilterCard({ title, titleTheme }) {
+function FilterCard({ title, children, onClick }) {
+  const [showCard, setShowCard] = useState(false);
+  const filterClickHandler = () => {
+    setShowCard((prevSate) => !prevSate);
+  };
   return (
-    <StyledFilterCard>
-      <FilterVisilbeContent title="Sort" />
-      <Title title={title} theme={titleTheme} />
-      <SelectMenu title="title" optionsList={['one', 'two', 'three']} />
-      <br />
+    <StyledFilterCard onClick={onClick}>
+      <FilterVisilbeContent
+        title={title}
+        showHiddenContentHandler={filterClickHandler}
+      />
+      {showCard && children}
     </StyledFilterCard>
   );
 }
 FilterCard.propTypes = {
+  // used shape because array of elements gives an error
+  // because im using conditional rendreing in the parent component
+  children: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  onClick: PropTypes.func,
   title: PropTypes.string.isRequired,
-  titleTheme: PropTypes.string.isRequired,
+};
+FilterCard.defaultProps = {
+  onClick: null,
 };
 
 export default FilterCard;

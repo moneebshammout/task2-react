@@ -1,15 +1,30 @@
-import { styled } from 'reuse/Packages';
+import { styled, css } from 'reuse/Packages';
+import * as constants from 'reuse/Constants';
 
-const StyledOption = styled.option`
-  width: 100%;
+const selectedCSS = css`
+  color: ${constants.Black};
+  font-weight: 700;
+  background-color: ${constants.white_Grey};
+  &:hover,
+  :focus {
+    background-color: ${constants.Light_Blue};
+    color: ${constants.White};
+  }
+`;
+const StyledOption = styled.div`
+  min-width: 100%;
   height: auto;
-  display: flex;
-  flex-direction: column;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+
   box-sizing: border-box;
-  padding-left: 1.3rem;
-  padding-top: 4rem;
   border: none;
-  /* @media (min-width: 25rem) {
+  background-color: ${constants.White};
+  //assigning hover effect for the focused option
+  ${(props) =>
+    props.selected === props.content
+      ? selectedCSS
+      : null}/* @media (min-width: 25rem) {
     width: 100%;
     height: auto;
   } */
