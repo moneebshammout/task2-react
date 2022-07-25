@@ -10,7 +10,7 @@ import StyledImage from './Image.Style';
 function Image({ imagePath }) {
   return (
     <StyledImage>
-      <img src={imagePath} alt="Logo" />
+      <img src={imagePath} alt="Logo" loading="lazy" />
     </StyledImage>
   );
 }

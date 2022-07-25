@@ -12,10 +12,20 @@ const bold = css`
   font-size: 1.6rem;
   font-weight: 600;
 `;
+const smallBold = css`
+  font-size: 1rem;
+  font-weight: 600;
+`;
+const smallLight = css`
+  font-size: 0.8rem;
+  font-weight: 300;
+`;
 const theme = {
   bold,
   light,
   medium,
+  smallBold,
+  smallLight,
 };
 const StyledTitle = styled.h2`
   display: flex;

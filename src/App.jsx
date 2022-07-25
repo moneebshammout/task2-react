@@ -1,6 +1,7 @@
 import { React } from 'reuse/Packages';
 import NavBar from 'Components/NavBar/NavBar';
 import Body from 'Components/Body/Body';
+import Footer from 'Components/Footer/Footer';
 import GlobalStyle from './App.style';
 
 /**
@@ -14,6 +15,7 @@ function App() {
       <GlobalStyle />
       <NavBar />
       <Body />
+      <Footer />
     </>
   );
 }

@@ -30,7 +30,25 @@ const smallGrey = css`
   text-indent: -6rem;
   display: block !important;
 `;
+const bigBlue = css`
+  font-size: 1.2rem;
+  background-color: ${(props) =>
+    props.disabled ? constants.White : constants.Light_Blue};
+  color: ${(props) =>
+    props.disabled ? constants.Light_Grey : constants.White};
+  width: 90%;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  line-height: 1rem;
+  border: solid 1rem;
+
+  border-color: transparent;
+  border-radius: 1rem;
+  margin: 0.5rem;
+`;
 const themes = {
+  bigBlue,
   bigWhite,
   smallFade,
   smallGrey,

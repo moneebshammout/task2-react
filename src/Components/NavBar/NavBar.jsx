@@ -26,7 +26,6 @@ function NavBar() {
     const heightToHideFrom = 130;
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
-    setNavVisibile(false);
     if (winScroll > heightToHideFrom) {
       if (navVisibile) setNavVisibile(false);
     } else {

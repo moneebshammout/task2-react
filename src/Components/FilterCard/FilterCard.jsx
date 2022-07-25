@@ -27,11 +27,12 @@ function FilterCard({ title, children, onClick }) {
 FilterCard.propTypes = {
   // used shape because array of elements gives an error
   // because im using conditional rendreing in the parent component
-  children: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  children: PropTypes.arrayOf(PropTypes.shape),
   onClick: PropTypes.func,
   title: PropTypes.string.isRequired,
 };
 FilterCard.defaultProps = {
+  children: null,
   onClick: null,
 };
 

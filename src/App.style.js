@@ -7,8 +7,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    //add fonts here
-    height: 100rem;;
   }
 `;
 

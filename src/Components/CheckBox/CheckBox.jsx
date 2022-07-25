@@ -6,15 +6,16 @@ import StyledLabel from './LabelStyle';
 /**
  * @description return checkBox component
  * @param {string } label   label text
- * @param {function } firstClickHandler   special Handler for first element to show or hide others
+ * @param {function } onCheckHandler   handel check event
  * @param {boolean } itemVisibility   visibility state
+ * @param {boolean } checked   intial checkbox state
  * @returns {JSX}  checkBox
  */
-function CheckBox({ label, firstClickHandler, itemVisibility }) {
-  const [checkState, setCheckState] = useState(true);
+function CheckBox({ label, onCheckHandler, itemVisibility, checked }) {
+  const [checkState, setCheckState] = useState(checked);
   const toggleCheckBox = () => {
     setCheckState((prevState) => !prevState);
-    if (firstClickHandler) firstClickHandler();
+    if (onCheckHandler) onCheckHandler();
   };
   return (
     itemVisibility && (
@@ -30,8 +31,14 @@ function CheckBox({ label, firstClickHandler, itemVisibility }) {
   );
 }
 CheckBox.propTypes = {
-  firstClickHandler: PropTypes.func.isRequired,
+  checked: PropTypes.bool,
   itemVisibility: PropTypes.bool.isRequired,
   label: PropTypes.string.isRequired,
+  onCheckHandler: PropTypes.func,
 };
+CheckBox.defaultProps = {
+  checked: true,
+  onCheckHandler: null,
+};
+
 export default CheckBox;
