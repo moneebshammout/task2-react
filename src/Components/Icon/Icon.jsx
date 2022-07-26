@@ -9,9 +9,11 @@ const icons = {
   HiOutlineChevronRight: <Heroicons.HiOutlineChevronRight />,
   HiOutlineMenu: <Heroicons.HiOutlineMenu />,
   HiOutlineTrendingUp: <Heroicons.HiOutlineTrendingUp />,
+  HiPlus: <Heroicons.HiPlus />,
   HiQuestion: <Heroicons.HiQuestionMarkCircle />,
   HiSearch: <Heroicons.HiSearch />,
   HiUser: <Heroicons.HiUser />,
+  Hidots: <Heroicons.HiDotsCircleHorizontal />,
 };
 /**
  * @description return Icon component
@@ -19,11 +21,17 @@ const icons = {
  * @param {string} color name of icon color
  * @param {Function} onClick on click handler
  * @param {String} id  unique identifier
+ * @param {Boolean} hoverEffect  gives icon hovver effect
  * @returns {JSX}  icon component
  */
-function Icon({ iconName, color, onClick, id }) {
+function Icon({ iconName, color, onClick, id, hoverEffect }) {
   return (
-    <StyledIcon theme={color} onClick={onClick} id={id}>
+    <StyledIcon
+      theme={color}
+      onClick={onClick}
+      id={id}
+      hoverEffect={hoverEffect}
+    >
       {icons[iconName]}
     </StyledIcon>
   );
@@ -31,12 +39,14 @@ function Icon({ iconName, color, onClick, id }) {
 Icon.propTypes = {
   // iconFamily: PropTypes.string.isRequired,
   color: PropTypes.string,
+  hoverEffect: PropTypes.bool,
   iconName: PropTypes.string.isRequired,
   id: PropTypes.string,
   onClick: PropTypes.func,
 };
 Icon.defaultProps = {
   color: 'white',
+  hoverEffect: false,
   id: '',
   onClick: null,
 };

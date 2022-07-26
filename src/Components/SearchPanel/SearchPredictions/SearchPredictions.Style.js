@@ -17,5 +17,7 @@ const SearchPrediction = styled.div`
     border-top: 0.1rem solid ${constants.Grey};
     ${(props) => (props.bottomBorder ? bottomBorderCSS : '')};
   }
+  @media (min-width: 50rem) {
+  }
 `;
 export default SearchPrediction;

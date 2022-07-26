@@ -9,5 +9,12 @@ const StyledPosterContainer = styled.div`
     width: 10rem;
     min-width: 6rem;
   }
+  @media (min-width: 50rem) {
+    height: 16rem;
+    min-height: 16rem;
+    width: 11rem;
+    min-width: 11rem;
+    position: relative;
+  }
 `;
 export default StyledPosterContainer;

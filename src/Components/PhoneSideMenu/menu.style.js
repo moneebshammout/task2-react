@@ -46,6 +46,9 @@ const StyledPhoneMenu = styled.div`
         ? hideMenu
         : () => (props.showMenu ? showAnimation : hideAnimation)};
   }
+  @media (min-width: 50rem) {
+    display: none;
+  }
 `;
 
 export default StyledPhoneMenu;

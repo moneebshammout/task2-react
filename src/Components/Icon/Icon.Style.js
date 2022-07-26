@@ -1,4 +1,4 @@
-import { styled } from 'reuse/Packages';
+import { styled, css } from 'reuse/Packages';
 import * as constants from 'reuse/Constants';
 
 const theme = {
@@ -7,10 +7,16 @@ const theme = {
   grey: constants.Grey,
   white: constants.White,
 };
+const hoverCSS = css`
+  :hover {
+    color: ${constants.Light_Blue};
+  }
+`;
 const StyledIcon = styled.i`
   font-size: 1.4rem;
   color: ${(props) => theme[props.theme] ?? 'white'};
   display: flex;
+  ${(props) => (props.hoverEffect ? hoverCSS : null)};
   @media (min-width: 25rem) {
   }
 `;

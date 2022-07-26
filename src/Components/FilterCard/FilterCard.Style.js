@@ -12,5 +12,7 @@ const StyledFilterCard = styled.div`
     margin-bottom: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0.1rem 0.1rem 0.1rem 0.1rem;
   }
+  @media (min-width: 50rem) {
+  }
 `;
 export default StyledFilterCard;

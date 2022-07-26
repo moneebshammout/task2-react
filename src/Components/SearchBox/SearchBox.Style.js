@@ -10,5 +10,8 @@ const StyledSearchBox = styled.div`
     justify-content: center;
     color: grey;
   }
+  @media (min-width: 50rem) {
+    width: 120%;
+  }
 `;
 export default StyledSearchBox;

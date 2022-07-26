@@ -6,12 +6,13 @@ import StyledStringDropDown from './String.Drop.Down.Style';
  * @param {bool} visibility   show or hide menu
  * @param {arrayOf<String>} content   array of strings displayed in StringDropDown
  * @param {String} theme  theme type of buttons
+ * @param {String} dropType  desktop themes
  * @returns {JSX}  StringDropDown component
  */
-function StringDropDown({ visibility, content, theme }) {
+function StringDropDown({ visibility, content, theme, dropType }) {
   return (
     visibility && (
-      <StyledStringDropDown>
+      <StyledStringDropDown dropType={dropType}>
         {content.map((sentence) => (
           <Button key={sentence} text={sentence} theme={theme} />
         ))}
@@ -21,10 +22,12 @@ function StringDropDown({ visibility, content, theme }) {
 }
 StringDropDown.propTypes = {
   content: PropTypes.arrayOf(PropTypes.string).isRequired,
+  dropType: PropTypes.string,
   theme: PropTypes.string,
   visibility: PropTypes.bool.isRequired,
 };
 StringDropDown.defaultProps = {
+  dropType: 'navbar',
   theme: 'smallWhite',
 };
 export default StringDropDown;

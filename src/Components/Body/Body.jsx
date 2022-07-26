@@ -10,6 +10,8 @@ import CheckBox from 'Components/CheckBox/CheckBox';
 import MovieCard from 'Components/MovieCard/MovieCard';
 import CountryDropDown from 'Components/CountryDropDown/CountryDropDown';
 import Button from 'Components/Button/Button';
+import StyledDesktopMoviesContainer from './DesktopMoviesContainerStyle';
+import StyledDesktopFiltersContainer from './DesktopFiltersContainerStyle';
 import StyledInfoPopUp from './InfoPopUp.Style';
 import StyledBody from './Body.Style';
 
@@ -61,19 +63,28 @@ function Body() {
   const [showAvailability, setShowAvailability] = useState(false);
   const [showReleaseDates, setshowReleaseDates] = useState(false);
   const [showSearchButton, setShowSearchButton] = useState(false);
-  const [searchQuery, setsearchQuery] = useState('popularity.desc');
-  // eslint-disable-next-line no-unused-vars
+  const [searchQuery, setsearchQuery] = useState('popularity.asc');
   const [moviePage, setMoviePage] = useState(1);
   const [movies, setMovies] = useState([]);
+  /**
+   * @descriptipn shortcut for fetch movie service
+   * @param {arrayof(movie)} oldMovies
+   * @return {null}
+   */
   async function fetchMoviesShortcut(oldMovies) {
     await fetchMovies(moviePage, searchQuery).then((newMovies) => {
       setMovies(oldMovies.concat(newMovies));
     });
   }
+  // every time movie Page Change it fetches the new page
   useEffect(() => {
     fetchMoviesShortcut(movies);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [moviePage]);
+  /**
+   * @description triggring useEffect by incrementing page count
+   * @return {null}
+   */
   const loadMoreClickHandler = async () => {
     setMoviePage((prevState) => 1 + prevState);
   };
@@ -88,8 +99,7 @@ function Body() {
     setShowSearchButton(showButton);
   };
   /**
-   * @description show or hide question mark info on click
-   * @param {object}  e Event object
+   * @description  fetch movies based on sorting prefrences
    * @returns {null}
    */
   const searchButtonClickHandler = async () => {
@@ -134,7 +144,7 @@ function Body() {
     setShowAvailability((prevState) => !prevState);
   };
   /**
-   * @description show or hide availabilties checkboxes
+   * @description show or hide Release checkboxes
    * @returns {null}
    */
   const toggleReleaseDates = () => {
@@ -142,100 +152,110 @@ function Body() {
   };
   return (
     <StyledBody>
-      <Title title="Popular Movies" theme="bold" />
-      {/* SORT DROP DOWN */}
-      <FilterCard title="Sort">
-        <Title title="Sort Results By" theme="light" />
-        <SelectMenu
-          optionsList={Object.keys(sortMap)}
-          selectMenuChangeHandler={sortFiltersClickHandler}
-        />
-        <br />
-      </FilterCard>
-
-      {/* fILTERS DROP DOWN */}
-      <FilterCard title="Filters" onClick={(e) => infoIconClickHandler(e)}>
-        {showInfo && (
-          <StyledInfoPopUp>
-            Log In To Filter Items You&apos;ve Watched
-          </StyledInfoPopUp>
-        )}
-        <Title title="Show Me" theme="light">
-          <Icon
-            id="icon"
-            color="grey"
-            iconName="HiQuestion"
-            onClick={(e) => infoIconClickHandler(e)}
+      <StyledDesktopFiltersContainer>
+        <Title title="Popular Movies" theme="bold" />
+        {/* SORT DROP DOWN */}
+        <FilterCard title="Sort">
+          <Title title="Sort Results By" theme="light" />
+          <SelectMenu
+            optionsList={Object.keys(sortMap)}
+            selectMenuChangeHandler={sortFiltersClickHandler}
           />
-        </Title>
+          <br />
+        </FilterCard>
 
-        <br />
-        {radioButtonList.map((label) => (
-          <RadioButton
-            label={label}
-            id={label}
-            key={label}
-            onChangeHandler={radioBTNChangeHandler}
-            checked={radioBtnState[label]}
-          />
-        ))}
+        {/* fILTERS DROP DOWN */}
+        <FilterCard title="Filters" onClick={(e) => infoIconClickHandler(e)}>
+          {showInfo && (
+            <StyledInfoPopUp>
+              Log In To Filter Items You&apos;ve Watched
+            </StyledInfoPopUp>
+          )}
+          <Title title="Show Me" theme="light">
+            <Icon
+              id="icon"
+              color="grey"
+              iconName="HiQuestion"
+              onClick={(e) => infoIconClickHandler(e)}
+            />
+          </Title>
 
-        <Title title="Availabilites" theme="light" />
+          <br />
+          {radioButtonList.map((label) => (
+            <RadioButton
+              label={label}
+              id={label}
+              key={label}
+              onChangeHandler={radioBTNChangeHandler}
+              checked={radioBtnState[label]}
+            />
+          ))}
 
-        {availabiltiesList.map((item) => (
+          <Title title="Availabilites" theme="light" />
+
+          {availabiltiesList.map((item) => (
+            <CheckBox
+              label={item}
+              onCheckHandler={
+                availabiltiesList[0] === item ? toggleAvailabilty : null
+              }
+              itemVisibility={
+                availabiltiesList[0] === item ? true : showAvailability
+              }
+              key={item}
+            />
+          ))}
+          <Title title="Release Dates" theme="light" />
           <CheckBox
-            label={item}
-            onCheckHandler={
-              availabiltiesList[0] === item ? toggleAvailabilty : null
-            }
-            itemVisibility={
-              availabiltiesList[0] === item ? true : showAvailability
-            }
-            key={item}
+            label={releaseList[0]}
+            onCheckHandler={toggleReleaseDates}
+            itemVisibility
+            key={releaseList[0]}
           />
-        ))}
-        <Title title="Release Dates" theme="light" />
-        <CheckBox
-          label={releaseList[0]}
-          onCheckHandler={toggleReleaseDates}
-          itemVisibility
-          key={releaseList[0]}
-        />
-        <CheckBox
-          label={releaseList[1]}
-          itemVisibility={showReleaseDates}
-          key={releaseList[1]}
-        />
-        {releaseList.slice(1).map((item) => (
           <CheckBox
-            label={item}
-            onCheckHandler={releaseList[0] === item ? toggleReleaseDates : null}
-            itemVisibility={releaseList[0] === item ? true : showReleaseDates}
-            key={item}
+            label={releaseList[1]}
+            itemVisibility={showReleaseDates}
+            key={releaseList[1]}
+          />
+          {releaseList.slice(1).map((item) => (
+            <CheckBox
+              label={item}
+              onCheckHandler={
+                releaseList[0] === item ? toggleReleaseDates : null
+              }
+              itemVisibility={releaseList[0] === item ? true : showReleaseDates}
+              key={item}
+            />
+          ))}
+          <CountryDropDown />
+        </FilterCard>
+        <FilterCard title="Where To Watch" />
+        <Button
+          theme="bigBlue"
+          text="Search"
+          onClick={searchButtonClickHandler}
+          disabled={!showSearchButton}
+        />
+      </StyledDesktopFiltersContainer>
+      <StyledDesktopMoviesContainer>
+        {movies.map((movie) => (
+          <MovieCard
+            title={movie.title}
+            description={movie.description}
+            imageURL={movie.imageURL}
+            date={movie.date}
+            key={movie.id}
+            percentageRate={movie.percentageRate}
           />
         ))}
-        <CountryDropDown />
-      </FilterCard>
-      <FilterCard title="Where To Watch" />
-
-      <Button
-        theme="bigBlue"
-        text="Search"
-        onClick={searchButtonClickHandler}
-        disabled={!showSearchButton}
-      />
-
-      {movies.map((movie) => (
-        <MovieCard
-          title={movie.title}
-          description={movie.description}
-          imageURL={movie.imageURL}
-          date={movie.date}
-          key={movie.id}
+        <br />
+        <br />
+        <Button
+          theme="bigBlue"
+          text="LoadMore"
+          onClick={loadMoreClickHandler}
         />
-      ))}
-
-      <Button theme="bigBlue" text="LoadMore" onClick={loadMoreClickHandler} />
+      </StyledDesktopMoviesContainer>
     </StyledBody>
   );
 }

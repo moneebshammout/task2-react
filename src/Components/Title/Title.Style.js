@@ -1,4 +1,5 @@
 import { styled, css } from 'reuse/Packages';
+import * as constants from 'reuse/Constants';
 
 const light = css`
   font-size: 1rem;
@@ -16,14 +17,28 @@ const smallBold = css`
   font-size: 1rem;
   font-weight: 600;
 `;
+const moviesBold = css`
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  :hover {
+    color: ${constants.Light_Blue};
+  }
+`;
 const smallLight = css`
   font-size: 0.8rem;
   font-weight: 300;
+  @media (min-width: 50rem) {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 6);
+  }
 `;
 const theme = {
   bold,
   light,
   medium,
+  moviesBold,
   smallBold,
   smallLight,
 };

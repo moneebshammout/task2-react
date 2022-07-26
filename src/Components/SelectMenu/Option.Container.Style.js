@@ -9,10 +9,10 @@ const StyledOptionContainer = styled.div`
   position: absolute;
   border: none;
   background-color: transparent;
-  /* @media (min-width: 25rem) {
-    width: 100%;
+  @media (min-width: 50rem) {
+    width: 15%;
     height: auto;
-  } */
+  }
 `;
 
 export default StyledOptionContainer;

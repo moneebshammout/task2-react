@@ -7,11 +7,14 @@ const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  padding-left: 1rem;
+
   background-color: ${constants.Dark_Blue};
-  /* @media (min-width: 25rem) {
-    width: 100%;
-    height: auto;
-  } */
+  @media (min-width: 50rem) {
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 6rem;
+  }
 `;
 
 export default StyledFooter;

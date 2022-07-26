@@ -8,7 +8,7 @@ const underNav = css`
 const overrideNav = css`
   padding-bottom: 4rem;
 `;
-const StyledSearchBox = styled.div`
+const StyldeSearchPanel = styled.div`
   @media (min-width: 25rem) {
     display: block;
     font-size: 1rem;
@@ -18,5 +18,12 @@ const StyledSearchBox = styled.div`
     background-color: ${constants.White};
     ${(props) => (props.navVisibile ? underNav : overrideNav)};
   }
+  @media (min-width: 50rem) {
+    width: 70%;
+    padding-left: 15rem;
+    padding-bottom: 3.7rem;
+    display: flex;
+    flex-direction: column;
+  }
 `;
-export default StyledSearchBox;
+export default StyldeSearchPanel;

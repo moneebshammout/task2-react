@@ -4,9 +4,13 @@ import Icon from 'Components/Icon/Icon';
 import PhoneSideMenu from 'Components/PhoneSideMenu/PhoneSideMenu';
 import Button from 'Components/Button/Button';
 import SearchPanel from 'Components/SearchPanel/SearchPanel';
+import DesktopMenu from 'Components/DesktopMenu/DesktopMenu';
+import DropDownMenu from 'Components/StringDropDown/StringDropDown';
 import RightIconsWrapper from './Right.Wrapper.Style';
 import StyledUerUtilites from './User.Utilities.Style';
 import { StyledHeader, StyledNavBar } from './NavBar.Style';
+import StyledLeftWrapper from './DesktopLeftStyle';
+import StyledDesktopNavBar from './DesktopNav.Style';
 
 /**
  * @description return nav bar component wrapped by a header
@@ -17,13 +21,14 @@ function NavBar() {
   const [showUserUtilities, setshowUserUtilities] = useState(false);
   const [showSearch, setshowSearch] = useState(false);
   const [navVisibile, setNavVisibile] = useState(true);
-
+  // desktop states
+  const [showPlusDrop, setShowPlusDrop] = useState(false);
   /**
    * @description listens to user scroll to hide nav bar
    * @returns react APP
    */
   const listenToScroll = () => {
-    const heightToHideFrom = 130;
+    const heightToHideFrom = 170;
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
     if (winScroll > heightToHideFrom) {
@@ -58,13 +63,16 @@ function NavBar() {
   const searchIconClickHandler = () => {
     setshowSearch((prevState) => !prevState);
   };
+  const plusClickHandler = () => {
+    setShowPlusDrop((prevState) => !prevState);
+  };
   return (
     <>
       {navVisibile && (
         <StyledHeader>
           <StyledNavBar>
             <Icon iconName="HiOutlineMenu" onClick={sideMenuClickHandler} />
-            <LogoContainer />
+            <LogoContainer logoType="phone" />
             <RightIconsWrapper>
               <Icon
                 iconName="HiUser"
@@ -79,6 +87,43 @@ function NavBar() {
               />
             </RightIconsWrapper>
           </StyledNavBar>
+
+          <StyledDesktopNavBar>
+            {/* left wrapper */}
+            <StyledLeftWrapper>
+              <LogoContainer logoType="desktop" theme="desktopNav" />
+              <DesktopMenu />
+            </StyledLeftWrapper>
+
+            {/* right wrapper */}
+            <RightIconsWrapper>
+              <div>
+                <Icon
+                  iconName="HiPlus"
+                  color="white"
+                  onClick={plusClickHandler}
+                />
+                {showPlusDrop && (
+                  <DropDownMenu
+                    visibility
+                    content={[
+                      'Cant find  a movie or tv show',
+                      'login or create one',
+                    ]}
+                    theme="smallBlack"
+                  />
+                )}
+              </div>
+              <Button text="En" theme="language" />
+              <Button text="Login" theme="smallDesktopWhite" />
+              <Button text="Join TMDB" theme="smallDesktopWhite" />
+              <Icon
+                iconName={showSearch ? 'AiOutlineClose' : 'HiSearch'}
+                color={showSearch ? null : 'blue'}
+                onClick={searchIconClickHandler}
+              />
+            </RightIconsWrapper>
+          </StyledDesktopNavBar>
         </StyledHeader>
       )}
       {showUserUtilities && (

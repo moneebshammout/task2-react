@@ -8,6 +8,13 @@ const StyledRightWrapper = styled.span`
       padding-right: 1.5rem;
     }
   }
+  @media (min-width: 50rem) {
+    :last-child {
+      padding-right: 0;
+    }
+    width: 20rem;
+    justify-content: space-between;
+  }
 `;
 
 export default StyledRightWrapper;

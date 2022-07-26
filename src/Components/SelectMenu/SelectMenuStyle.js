@@ -17,6 +17,9 @@ const StyledSelectMenu = styled.ul`
     background-repeat: no-repeat;
     background-position: right 0.1rem center;
   }
+  @media (min-width: 50rem) {
+    width: 80%;
+  }
 `;
 
 export default StyledSelectMenu;

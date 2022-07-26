@@ -2,11 +2,11 @@ import { styled } from 'reuse/Packages';
 import * as constants from 'reuse/Constants';
 
 const StyledHeader = styled.header`
+  position: fixed;
   @media (min-width: 25rem) {
     background-color: ${constants.Dark_Blue};
     height: 4rem;
     width: 100%;
-    position: fixed;
   }
 `;
 const StyledNavBar = styled.nav`
@@ -20,6 +20,9 @@ const StyledNavBar = styled.nav`
       padding-left: 1.5rem;
     }
     overflow: hidden;
+  }
+  @media (min-width: 50rem) {
+    display: none;
   }
 `;
 

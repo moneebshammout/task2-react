@@ -13,5 +13,8 @@ const StlyedOverFlowContainer = styled.div`
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
   }
+  @media (min-width: 50rem) {
+    display: none;
+  }
 `;
 export default StlyedOverFlowContainer;

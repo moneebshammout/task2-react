@@ -1,22 +1,9 @@
 import { React, PropTypes, useEffect, useRef, useState } from 'reuse/Packages';
+import * as constants from 'reuse/Constants';
 import Button from 'Components/Button/Button';
 import DropDownMenu from 'Components/StringDropDown/StringDropDown';
 import StyledPhoneMenu from './menu.style';
 
-const moviesContent = ['Popular', 'Top Rated', 'Upcoming', 'Now Playing'];
-const tvContent = ['Popular', 'Top Rated', 'On TV', 'Airing Today'];
-const peopleContent = ['Popular People'];
-const visibleContent = [
-  'Contribution Bible',
-  'Apps',
-  'Discussions',
-  'Leaderboard',
-  'contribute',
-  'API',
-  'Support',
-  'About',
-  'Login',
-];
 /**
  * @description return Phone Side Menu component
  * @param {boolean} showMenu if true otherwise hide
@@ -25,7 +12,6 @@ const visibleContent = [
 function PhoneSideMenu({ showMenu }) {
   const [showState, setShowState] = useState({
     movies: false,
-
     people: false,
     tv: false,
   });
@@ -49,20 +35,30 @@ function PhoneSideMenu({ showMenu }) {
         onClick={() => dropDownHandler('movies')}
         text="Movies"
       />
-      <DropDownMenu visibility={showState.movies} content={moviesContent} />
+      <DropDownMenu
+        visibility={showState.movies}
+        content={constants.moviesContent}
+      />
       <Button
         theme="bigWhite"
         onClick={() => dropDownHandler('tv')}
         text="TV Shows"
       />
-      <DropDownMenu visibility={showState.tv} content={tvContent} />
+      <DropDownMenu visibility={showState.tv} content={constants.tvContent} />
       <Button
         theme="bigWhite"
         onClick={() => dropDownHandler('people')}
         text="People"
       />
-      <DropDownMenu visibility={showState.people} content={peopleContent} />
-      <DropDownMenu visibility content={visibleContent} theme="smallFade" />
+      <DropDownMenu
+        visibility={showState.people}
+        content={constants.peopleContent}
+      />
+      <DropDownMenu
+        visibility
+        content={constants.visibleContent}
+        theme="smallFade"
+      />
     </StyledPhoneMenu>
   );
   useEffect(() => {
