@@ -1,10 +1,12 @@
-import { React } from 'reuse/Packages';
+import React from 'react';
+
 import Button from 'Components/Button/Button';
 import StringDropDown from 'Components/StringDropDown/StringDropDown';
 import LogoContainer from 'Components/Logo/LogoContainer';
-import StyledFooter from './FooterStyle';
-import StyledDesktopLogo from './DesktopLogoStyle';
-import StyledDesktopLeftSide from './DesktopLeftSideStyle';
+
+import StyledFooter from './Footer.Style';
+import StyledDesktopLogo from './DesktopLogo.Style';
+import StyledDesktopLeftSide from './DesktopLeftSide.Style';
 
 const basicContent = [
   'About TMDB',
@@ -13,17 +15,25 @@ const basicContent = [
   'API',
   'System Status',
 ];
+
 const involvedContent = [
   'Contribution Bible',
   'ADd new movie',
   'Add new TV show',
 ];
-const communityContent = ['Guidlines', 'Discusions', 'Leaderboard', 'Twitter'];
+
+const communityContent = [
+  'Guidelines',
+  'Discussions',
+  'Leaderboard',
+  'Twitter',
+];
+
 const LegalContent = ['Terms OF Use', 'API Terms OF Use', 'Privacy Policy'];
 
 /**
- * @description return Footer component
- * @returns {JSX}  Image component
+ *  Create Footer component.
+ * @return {JSX}  Footer.
  */
 
 function Footer() {

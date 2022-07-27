@@ -1,4 +1,5 @@
-import { styled, css } from 'reuse/Packages';
+import styled, { css } from 'styled-components';
+import { media } from 'Styles/MediaQuery';
 
 const desktopNav = css`
   width: 1.5em;
@@ -14,14 +15,14 @@ const theme = {
   desktopNav,
 };
 const LogoContainer = styled.div`
-  @media (min-width: 25rem) {
+  ${media.phone`
     width: 4.2rem;
     height: 4.2rem;
-  }
-  @media (min-width: 50rem) {
+  `}
+  ${media.desktop`
     display: flex;
     ${(props) => theme[props.theme]};
-  }
+  `}
 `;
 
 export default LogoContainer;

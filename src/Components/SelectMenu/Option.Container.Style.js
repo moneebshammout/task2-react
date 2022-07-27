@@ -1,4 +1,5 @@
-import { styled } from 'reuse/Packages';
+import styled from 'styled-components';
+import { media } from 'Styles/MediaQuery';
 
 const StyledOptionContainer = styled.div`
   width: 80%;
@@ -9,10 +10,10 @@ const StyledOptionContainer = styled.div`
   position: absolute;
   border: none;
   background-color: transparent;
-  @media (min-width: 50rem) {
+  ${media.desktop`
     width: 15%;
     height: auto;
-  }
+  `}
 `;
 
 export default StyledOptionContainer;

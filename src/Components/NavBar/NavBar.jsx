@@ -1,4 +1,5 @@
-import { React, useState, useEffect } from 'reuse/Packages';
+import React, { useState, useEffect } from 'react';
+
 import LogoContainer from 'Components/Logo/LogoContainer';
 import Icon from 'Components/Icon/Icon';
 import PhoneSideMenu from 'Components/PhoneSideMenu/PhoneSideMenu';
@@ -6,35 +7,37 @@ import Button from 'Components/Button/Button';
 import SearchPanel from 'Components/SearchPanel/SearchPanel';
 import DesktopMenu from 'Components/DesktopMenu/DesktopMenu';
 import DropDownMenu from 'Components/StringDropDown/StringDropDown';
+
 import RightIconsWrapper from './Right.Wrapper.Style';
-import StyledUerUtilites from './User.Utilities.Style';
+import StyledUerUtilities from './User.Utilities.Style';
 import { StyledHeader, StyledNavBar } from './NavBar.Style';
-import StyledLeftWrapper from './DesktopLeftStyle';
+import StyledLeftWrapper from './DesktopLeft.Style';
 import StyledDesktopNavBar from './DesktopNav.Style';
 
 /**
- * @description return nav bar component wrapped by a header
- * @returns {JSX}   nav bar component
+ *  Create nav bar component wrapped by a header.
+ * @return {JSX}   NavBar component.
  */
+
 function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
-  const [showUserUtilities, setshowUserUtilities] = useState(false);
-  const [showSearch, setshowSearch] = useState(false);
-  const [navVisibile, setNavVisibile] = useState(true);
+  const [showUserUtilities, setShowUserUtilities] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
   // desktop states
   const [showPlusDrop, setShowPlusDrop] = useState(false);
   /**
-   * @description listens to user scroll to hide nav bar
-   * @returns react APP
+   *  listens to user scroll to hide nav bar
+   * @return react APP
    */
   const listenToScroll = () => {
     const heightToHideFrom = 170;
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
     if (winScroll > heightToHideFrom) {
-      if (navVisibile) setNavVisibile(false);
+      if (navVisible) setNavVisible(false);
     } else {
-      setNavVisibile(true);
+      setNavVisible(true);
     }
   };
   useEffect(() => {
@@ -43,32 +46,32 @@ function NavBar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   /**
-   * @description show or hide side menu using state on click
+   *  show or hide side menu using state on click
    * @return null
    */
   const sideMenuClickHandler = () => {
     setShowMenu((prevState) => !prevState);
   };
   /**
-   * @description show or hide user menu using state on click
+   *  show or hide user menu using state on click
    * @return null
    */
   const userUtilitiesClickHandler = () => {
-    setshowUserUtilities((prevState) => !prevState);
+    setShowUserUtilities((prevState) => !prevState);
   };
   /**
-   * @description show or hide search menu using state on click
+   *  show or hide search menu using state on click
    * @return null
    */
   const searchIconClickHandler = () => {
-    setshowSearch((prevState) => !prevState);
+    setShowSearch((prevState) => !prevState);
   };
   const plusClickHandler = () => {
     setShowPlusDrop((prevState) => !prevState);
   };
   return (
     <>
-      {navVisibile && (
+      {navVisible && (
         <StyledHeader>
           <StyledNavBar>
             <Icon iconName="HiOutlineMenu" onClick={sideMenuClickHandler} />
@@ -110,6 +113,7 @@ function NavBar() {
                       'Cant find  a movie or tv show',
                       'login or create one',
                     ]}
+                    dropType="navDrops"
                     theme="smallBlack"
                   />
                 )}
@@ -127,12 +131,12 @@ function NavBar() {
         </StyledHeader>
       )}
       {showUserUtilities && (
-        <StyledUerUtilites>
-          <Button key="signuserIN" text="Login" theme="smallGrey" />
-          <Button key=" signuserOUT" text="Signup" theme="smallGrey" />
-        </StyledUerUtilites>
+        <StyledUerUtilities>
+          <Button key="sign's in" text="Login" theme="smallGrey" />
+          <Button key=" sign's out" text="Signup" theme="smallGrey" />
+        </StyledUerUtilities>
       )}
-      {showSearch && <SearchPanel navVisibile={navVisibile} />}
+      {showSearch && <SearchPanel navVisible={navVisible} />}
       <PhoneSideMenu showMenu={showMenu} />
     </>
   );

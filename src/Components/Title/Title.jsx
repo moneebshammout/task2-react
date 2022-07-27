@@ -1,13 +1,18 @@
-import { React, PropTypes } from 'reuse/Packages';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import StyledTitle from './Title.Style';
+
 /**
- * @description return Title component
- * @param {String} title  title text
- * @param {String} theme  title theme
- * @param {element} children  children components
- * @returns {JSX}  Title component
+ *  return Title component
+ * @param {object} props Component variables.
+ * @param {element} props.children  children components
+ * @param {String} props.theme  title theme
+ * @param {String} props.title  title text
+ * @return {JSX}  Title component
  */
-function Title({ title, theme, children }) {
+
+function Title({ children, theme, title }) {
   return (
     <StyledTitle theme={theme}>
       {title}
@@ -16,12 +21,15 @@ function Title({ title, theme, children }) {
     </StyledTitle>
   );
 }
+
 Title.propTypes = {
   children: PropTypes.element,
   theme: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
+
 Title.defaultProps = {
   children: null,
 };
+
 export default Title;

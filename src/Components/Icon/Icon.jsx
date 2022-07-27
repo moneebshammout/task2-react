@@ -1,6 +1,9 @@
-import { React, PropTypes } from 'reuse/Packages';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import * as Heroicons from 'react-icons/hi';
 import * as AIicons from 'react-icons/ai';
+
 import StyledIcon from './Icon.Style';
 
 const icons = {
@@ -15,16 +18,19 @@ const icons = {
   HiUser: <Heroicons.HiUser />,
   Hidots: <Heroicons.HiDotsCircleHorizontal />,
 };
+
 /**
- * @description return Icon component
- * @param {string} iconName   name of the icon
- * @param {string} color name of icon color
- * @param {Function} onClick on click handler
- * @param {String} id  unique identifier
- * @param {Boolean} hoverEffect  gives icon hovver effect
- * @returns {JSX}  icon component
+ *  Create Icon component.
+ * @param {object} props   Component variables.
+ * @param {string} props.color Name of icon color.
+ * @param {Boolean} props.hoverEffect  Gives icon hover effect.
+ * @param {string} props.iconName   name of the icon.
+ * @param {String} props.id  unique identifier.
+ * @param {Function} props.onClick on click handler.
+ * @return {JSX}  Icon.
  */
-function Icon({ iconName, color, onClick, id, hoverEffect }) {
+
+function Icon({ color, hoverEffect, iconName, id, onClick }) {
   return (
     <StyledIcon
       theme={color}
@@ -36,6 +42,7 @@ function Icon({ iconName, color, onClick, id, hoverEffect }) {
     </StyledIcon>
   );
 }
+
 Icon.propTypes = {
   // iconFamily: PropTypes.string.isRequired,
   color: PropTypes.string,
@@ -44,10 +51,12 @@ Icon.propTypes = {
   id: PropTypes.string,
   onClick: PropTypes.func,
 };
+
 Icon.defaultProps = {
   color: 'white',
   hoverEffect: false,
   id: '',
   onClick: null,
 };
+
 export default Icon;

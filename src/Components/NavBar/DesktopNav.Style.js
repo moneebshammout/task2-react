@@ -1,17 +1,17 @@
-import { styled } from 'reuse/Packages';
-// import * as constants from 'reuse/Constants';
+import styled from 'styled-components';
+import { media } from 'Styles/MediaQuery';
 
 const StyledDesktopNavBar = styled.nav`
-  @media (min-width: 25rem) {
+  ${media.phone`
     display: none;
-  }
-  @media (min-width: 50rem) {
+  `}
+  ${media.desktop`
     display: flex;
     flex-direction: row;
     height: 4rem;
-    position: sticky;
+    position: relative;
     align-items: center;
     justify-content: space-evenly;
-  }
+  `}
 `;
 export default StyledDesktopNavBar;

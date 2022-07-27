@@ -1,15 +1,20 @@
-import { React, PropTypes } from 'reuse/Packages';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import StyledButton from './Button.Style';
+
 /**
- * @description return Button component depending on the theme chosed
- * @param {string} theme   name of the theme
- * @param {string} text    text inside the button
- * @param {Function} onClick on click handler
- * @param {Function} onHoverHandler on hover handler
- * @param {boolean} disabled  button state enabled or disabled
- * @returns {JSX}  Button component
+ * Create Button component depending on the theme chosen.
+ * @param {object} props   Component variables.
+ * @param {boolean} props.disabled  Button state enabled or disabled.
+ * @param {Function} props.onClick OnClick event handler.
+ * @param {Function} props.onHoverHandler OnHover event handler.
+ * @param {string} props.text    Text inside the button.
+ * @param {string} props.theme   Name of the theme.
+ * @return {JSX}  Button component.
  */
-function Button({ theme, onClick, text, disabled, onHoverHandler }) {
+
+function Button({ text, theme, disabled, onClick, onHoverHandler }) {
   if (disabled) {
     return (
       <StyledButton theme={theme} onClick={onClick} disabled>

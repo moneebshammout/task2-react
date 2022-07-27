@@ -1,5 +1,7 @@
-import { styled, css } from 'reuse/Packages';
-import * as constants from 'reuse/Constants';
+import styled, { css } from 'styled-components';
+import { media } from 'Styles/MediaQuery';
+
+import colors from 'Styles/Colors';
 
 const navDrops = css`
   position: absolute;
@@ -18,16 +20,16 @@ const types = {
   navDrops,
 };
 const StyledStringDropDown = styled.div`
-  @media (min-width: 25rem) {
+  ${media.phone`
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    color: ${constants.White};
+    color: ${colors.white};
     border: none;
     padding-bottom: 1rem;
-  }
-  @media (min-width: 50rem) {
+ `}
+  ${media.desktop`
     ${(props) => types[props.dropType]};
-  }
+  `}
 `;
 export default StyledStringDropDown;

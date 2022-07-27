@@ -1,21 +1,21 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import fetchMovies from 'service/movies.service';
-import { React, useState, useEffect } from 'reuse/Packages';
+import { React, useState, useEffect } from 'react';
+import fetchMovies from 'Service/Movies.Service';
+
 import Title from 'Components/Title/Title';
 import FilterCard from 'Components/FilterCard/FilterCard';
 import SelectMenu from 'Components/SelectMenu/SelectMenu';
 import Icon from 'Components/Icon/Icon';
-import RadioButton from 'Components/RadioButton/RadionButton';
+import RadioButton from 'Components/RadioButton/RadioButton';
 import CheckBox from 'Components/CheckBox/CheckBox';
 import MovieCard from 'Components/MovieCard/MovieCard';
 import CountryDropDown from 'Components/CountryDropDown/CountryDropDown';
 import Button from 'Components/Button/Button';
-import StyledDesktopMoviesContainer from './DesktopMoviesContainerStyle';
-import StyledDesktopFiltersContainer from './DesktopFiltersContainerStyle';
+
+import StyledDesktopMoviesContainer from './DesktopMoviesContainer.Style';
+import StyledDesktopFiltersContainer from './DesktopFiltersContainer.Style';
 import StyledInfoPopUp from './InfoPopUp.Style';
 import StyledBody from './Body.Style';
 
-// name and query
 const sortMap = {
   'Popularity Ascending': 'popularity.asc',
   'Popularity descending': 'popularity.desc',
@@ -26,22 +26,25 @@ const sortMap = {
   'title A-Z': 'title.asc',
   'title Z-A': 'title.desc',
 };
+
 const radioButtonList = [
-  'Everthing',
+  'Everything',
   "Movies I haven't Seen",
   'Movies I have Seen',
 ];
-const availabiltiesList = [
-  'Search all availabilties?',
+
+const availabilitiesList = [
+  'Search all availabilities?',
   'Stream',
   'Free',
   'Ads',
   'Rent',
   'Buy',
 ];
+
 const releaseList = [
   'Search all Releases?',
-  'Search all Countires?',
+  'Search all Countries?',
   'Premier',
   'Theatrical (limited)',
   'Theatrical',
@@ -49,10 +52,12 @@ const releaseList = [
   'Physical',
   'Tv',
 ];
+
 /**
- * @description return Body component
- * @returns {JSX}  Body component
+ * Create Body component.
+ * @return {JSX}  Body component.
  */
+
 function Body() {
   const [showInfo, setShowInfo] = useState(false);
   const [radioBtnState, setRadioBtnState] = useState({
@@ -61,70 +66,78 @@ function Body() {
     [radioButtonList[2]]: false,
   });
   const [showAvailability, setShowAvailability] = useState(false);
-  const [showReleaseDates, setshowReleaseDates] = useState(false);
+  const [showReleaseDates, setShowReleaseDates] = useState(false);
   const [showSearchButton, setShowSearchButton] = useState(false);
-  const [searchQuery, setsearchQuery] = useState('popularity.asc');
+  const [searchQuery, setSearchQuery] = useState('popularity.asc');
   const [moviePage, setMoviePage] = useState(1);
   const [movies, setMovies] = useState([]);
+
   /**
-   * @descriptipn shortcut for fetch movie service
-   * @param {arrayof(movie)} oldMovies
-   * @return {null}
+   * Shortcut for fetch movie service.
+   * @param {array(movie)} oldMovies Previous movies list.
    */
-  async function fetchMoviesShortcut(oldMovies) {
+
+  const fetchMoviesShortcut = async (oldMovies) => {
     await fetchMovies(moviePage, searchQuery).then((newMovies) => {
       setMovies(oldMovies.concat(newMovies));
     });
-  }
-  // every time movie Page Change it fetches the new page
+  };
+
+  // Every time movie Page Change it fetches the new page.
+
   useEffect(() => {
     fetchMoviesShortcut(movies);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [moviePage]);
+
   /**
-   * @description triggring useEffect by incrementing page count
-   * @return {null}
+   *  triggering useEffect by incrementing page count.
    */
+
   const loadMoreClickHandler = async () => {
     setMoviePage((prevState) => 1 + prevState);
   };
+
   /**
-   * @description hide or show search button and save value
-   * @param {String} queryName
-   * @param {bool}   showButton
-   * @returns {null}
+   * Hide or show search button and save value.
+   * @param {String} queryName  Query name for sorting.
+   * @param {bool}   showButton State in which show or hide search button.
    */
+
   const sortFiltersClickHandler = (queryName, showButton) => {
-    setsearchQuery(sortMap[queryName]);
+    setSearchQuery(sortMap[queryName]);
     setShowSearchButton(showButton);
-  };
-  /**
-   * @description  fetch movies based on sorting prefrences
-   * @returns {null}
-   */
-  const searchButtonClickHandler = async () => {
-    // fetch again
-    if (showSearchButton) await fetchMoviesShortcut([]);
   };
 
   /**
-   * @description show or hide question mark info on click
-   * @param {object}  e Event object
-   * @returns {null}
+   *  Fetch movies based on sorting preferences.
    */
-  const infoIconClickHandler = (e) => {
-    if (e.currentTarget.id === 'icon') {
-      e.stopPropagation();
+
+  const searchButtonClickHandler = async () => {
+    if (showSearchButton) {
+      await fetchMoviesShortcut([]);
+    }
+  };
+
+  /**
+   * Show or hide question mark info on click.
+   * @param {object}  event Event object.
+   */
+
+  const infoIconClickHandler = (event) => {
+    if (event.currentTarget.id === 'icon') {
+      event.stopPropagation();
       setShowInfo((prevState) => !prevState);
     } else {
       setShowInfo(false);
     }
   };
+
   /**
-   * @description check or uncheck radio button
-   * @param {String}  id radio btn identifier`
-   * @returns {null}
+   * Check or uncheck radio button.
+   * @param {String}  id Radio button identifier.
    */
+
   const radioBTNChangeHandler = (id) => {
     setRadioBtnState((prevState) => {
       const newData = {
@@ -136,24 +149,27 @@ function Body() {
       return newData;
     });
   };
+
   /**
-   * @description show or hide availabilties checkboxes
-   * @returns {null}
+   *  Show or hide availabilities checkboxes.
    */
-  const toggleAvailabilty = () => {
+
+  const toggleAvailability = () => {
     setShowAvailability((prevState) => !prevState);
   };
+
   /**
-   * @description show or hide Release checkboxes
-   * @returns {null}
+   *  Show or hide Release checkboxes.
    */
+
   const toggleReleaseDates = () => {
-    setshowReleaseDates((prevState) => !prevState);
+    setShowReleaseDates((prevState) => !prevState);
   };
+
   return (
     <StyledBody>
       <StyledDesktopFiltersContainer>
-        <Title title="Popular Movies" theme="bold" />
+        <Title title="Popular Movies" theme="popularHeader" />
         {/* SORT DROP DOWN */}
         <FilterCard title="Sort">
           <Title title="Sort Results By" theme="light" />
@@ -165,7 +181,10 @@ function Body() {
         </FilterCard>
 
         {/* fILTERS DROP DOWN */}
-        <FilterCard title="Filters" onClick={(e) => infoIconClickHandler(e)}>
+        <FilterCard
+          title="Filters"
+          onClick={(event) => infoIconClickHandler(event)}
+        >
           {showInfo && (
             <StyledInfoPopUp>
               Log In To Filter Items You&apos;ve Watched
@@ -176,7 +195,7 @@ function Body() {
               id="icon"
               color="grey"
               iconName="HiQuestion"
-              onClick={(e) => infoIconClickHandler(e)}
+              onClick={(event) => infoIconClickHandler(event)}
             />
           </Title>
 
@@ -191,16 +210,16 @@ function Body() {
             />
           ))}
 
-          <Title title="Availabilites" theme="light" />
+          <Title title="Availabilities" theme="light" />
 
-          {availabiltiesList.map((item) => (
+          {availabilitiesList.map((item) => (
             <CheckBox
               label={item}
               onCheckHandler={
-                availabiltiesList[0] === item ? toggleAvailabilty : null
+                availabilitiesList[0] === item ? toggleAvailability : null
               }
               itemVisibility={
-                availabiltiesList[0] === item ? true : showAvailability
+                availabilitiesList[0] === item ? true : showAvailability
               }
               key={item}
             />

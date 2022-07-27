@@ -1,9 +1,10 @@
-import { styled } from 'reuse/Packages';
-import * as constants from 'reuse/Constants';
+import styled from 'styled-components';
+import { media } from 'Styles/MediaQuery';
+import colors from 'Styles/Colors';
 
 const StyledUserUtilities = styled.div`
-  @media (min-width: 25rem) {
-    background-color: ${constants.White};
+  ${media.phone`
+    background-color: ${colors.white};
     bottom: 82.5%;
     left: 51.5%;
     display: block !important;
@@ -22,15 +23,15 @@ const StyledUserUtilities = styled.div`
         border-bottom: solid 0.001rem grey;
       }
       &:first-child:hover {
-        background-color: ${constants.Dark_Blue};
-        color: ${constants.White};
+        background-color: ${colors.darkBlue};
+        color: ${colors.white};
       }
       &:nth-child(2):hover {
-        background-color: ${constants.Dark_Blue};
-        color: ${constants.White};
+        background-color: ${colors.darkBlue};
+        color: ${colors.white};
       }
     }
-  }
+  `}
 `;
 
 export default StyledUserUtilities;

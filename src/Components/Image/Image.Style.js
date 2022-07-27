@@ -1,14 +1,10 @@
-import { styled } from 'reuse/Packages';
-// import * as constants from 'Constants';
+import styled from 'styled-components';
+// import { media } from 'Styles/MediaQuery';
 
 const StyledImage = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  /* @media (min-width: 25rem) {
-    width: 100%;
-    height: auto;
-  } */
 `;
 
 export default StyledImage;

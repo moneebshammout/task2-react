@@ -1,5 +1,6 @@
-import { styled } from 'reuse/Packages';
-import * as constants from 'reuse/Constants';
+import styled from 'styled-components';
+// import { media } from 'Styles/MediaQuery';
+import colors from 'Styles/Colors';
 
 const StyledInfoPopUp = styled.div`
   width: 20rem;
@@ -7,15 +8,11 @@ const StyledInfoPopUp = styled.div`
   font-size: 1rem;
   display: flex;
   box-sizing: border-box;
-  background-color: ${constants.Dark_Blue};
-  color: ${constants.White};
+  background-color: ${colors.darkBlue};
+  color: ${colors.white};
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  /* @media (min-width: 25rem) {
-    width: 100%;
-    height: auto;
-  } */
 `;
 
 export default StyledInfoPopUp;

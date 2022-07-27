@@ -1,7 +1,10 @@
-import { React, PropTypes } from 'reuse/Packages';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import SearchBox from 'Components/SearchBox/SearchBox';
 import TrendingDiv from './TrendingDiv/TrendingDiv';
 import SearchPredictions from './SearchPredictions/SearchPredictions';
+
 import StyledSearchPanel from './SearchPanel.Style';
 
 const predictionsList = [
@@ -10,26 +13,31 @@ const predictionsList = [
   'Lightyear',
   'Thor: Love and Thunder',
   'Resident Evil',
-  'Doctor Strange  in the Multivirse Madness',
+  'Doctor Strange  in the Multiverse Madness',
   'Stranger Things',
   'The Forgiven : Part 2. The Other One',
   'Virgin River',
 ];
+
 /**
- * @description return TextField component depending on the theme chosed
- * @param {bool} navVisibile   nav bar visibility to shift it up when invisible
- * @returns {JSX}  TextField component
+ *  Create TextField component depending on the theme chosen.
+ * @param {object} props Component variables.
+ * @param {bool} props.navVisible   Nav bar visibility to shift it up when invisible.
+ * @return {JSX}  TextField component.
  */
-function SearchPanel({ navVisibile }) {
+
+function SearchPanel({ navVisible }) {
   return (
-    <StyledSearchPanel navVisibile={navVisibile}>
+    <StyledSearchPanel navVisible={navVisible}>
       <SearchBox
         leftIcon="HiSearch"
         rightIcon="AiOutlineClose"
         placeHolder="Search"
       />
       <TrendingDiv />
+
       {/* if its the last give it a bottom border */}
+
       {predictionsList.map((pred) =>
         predictionsList.length - 1 === predictionsList.indexOf(pred) ? (
           <SearchPredictions key={pred} prediction={pred} bottomBorder />
@@ -40,8 +48,9 @@ function SearchPanel({ navVisibile }) {
     </StyledSearchPanel>
   );
 }
+
 SearchPanel.propTypes = {
-  navVisibile: PropTypes.bool.isRequired,
+  navVisible: PropTypes.bool.isRequired,
 };
 
 export default SearchPanel;

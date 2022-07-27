@@ -1,14 +1,21 @@
-import { React, useState, PropTypes } from 'reuse/Packages';
-import * as constants from 'reuse/Constants';
+import React, { useState } from 'react';
+
 import Button from 'Components/Button/Button';
 import DropDownMenu from 'Components/StringDropDown/StringDropDown';
-import StyledDesktopMenu from './DesktopMenuStyle';
+
+import {
+  moviesContent,
+  tvContent,
+  visibleContent,
+  peopleContent,
+} from 'Constants/Content';
+import StyledDesktopMenu from './DesktopMenu.Style';
 
 /**
- * @description renders nav bar left content
- *
- * @returns {JSX}
+ * Create nav bar drop downs for desktop only.
+ * @return {JSX} DesktopMenu component.
  */
+
 function DesktopMenu() {
   const [showState, setShowState] = useState({
     more: false,
@@ -16,11 +23,12 @@ function DesktopMenu() {
     people: false,
     tv: false,
   });
+
   /**
-   * @description renders nav bar left content
-   * @param {string } category to show or hide
-   * @returns {JSX}
+   *  Handles  hover event on the button to display drop down.
+   * @param {string } category  Show or Hide category.
    */
+
   const onHoverHandler = (category) => {
     setShowState((prevState) => {
       const newData = {
@@ -30,9 +38,7 @@ function DesktopMenu() {
       return newData;
     });
   };
-  onHoverHandler.PropTypes = {
-    category: PropTypes.string.isRequired,
-  };
+
   return (
     <StyledDesktopMenu>
       <div>
@@ -44,7 +50,7 @@ function DesktopMenu() {
         {showState.movies && (
           <DropDownMenu
             visibility
-            content={constants.moviesContent}
+            content={moviesContent}
             theme="smallBlack"
             dropType="navDrops"
           />
@@ -59,7 +65,7 @@ function DesktopMenu() {
         {showState.tv && (
           <DropDownMenu
             visibility
-            content={constants.tvContent}
+            content={tvContent}
             theme="smallBlack"
             dropType="navDrops"
           />
@@ -75,7 +81,7 @@ function DesktopMenu() {
           <DropDownMenu
             visibility
             theme="smallBlack"
-            content={constants.peopleContent}
+            content={peopleContent}
             dropType="navDrops"
           />
         )}
@@ -90,7 +96,7 @@ function DesktopMenu() {
           <DropDownMenu
             visibility
             theme="smallBlack"
-            content={constants.visibleContent}
+            content={visibleContent}
             dropType="navDrops"
           />
         )}

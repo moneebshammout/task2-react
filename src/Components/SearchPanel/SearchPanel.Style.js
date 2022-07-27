@@ -1,5 +1,7 @@
-import { styled, css } from 'reuse/Packages';
-import * as constants from 'reuse/Constants';
+import styled, { css } from 'styled-components';
+import { media } from 'Styles/MediaQuery';
+
+import colors from 'Styles/Colors';
 
 const underNav = css`
   bottom: 45%;
@@ -8,22 +10,24 @@ const underNav = css`
 const overrideNav = css`
   padding-bottom: 4rem;
 `;
-const StyldeSearchPanel = styled.div`
-  @media (min-width: 25rem) {
+const StyledSearchPanel = styled.div`
+  ${media.phone`
     display: block;
     font-size: 1rem;
     width: 100%;
     color: grey;
     position: fixed;
-    background-color: ${constants.White};
-    ${(props) => (props.navVisibile ? underNav : overrideNav)};
-  }
-  @media (min-width: 50rem) {
+    background-color: ${colors.white};
+    ${(props) => (props.navVisible ? underNav : overrideNav)};
+    margin-bottom: 2.5rem;
+ `}
+  ${media.desktop`
     width: 70%;
     padding-left: 15rem;
     padding-bottom: 3.7rem;
     display: flex;
     flex-direction: column;
-  }
+    z-index: 1;
+  `}
 `;
-export default StyldeSearchPanel;
+export default StyledSearchPanel;

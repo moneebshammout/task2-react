@@ -1,15 +1,14 @@
-import { React } from 'reuse/Packages';
+import React from 'react';
 import NavBar from 'Components/NavBar/NavBar';
 import Body from 'Components/Body/Body';
 import Footer from 'Components/Footer/Footer';
 import GlobalStyle from './App.style';
 
 /**
- * @description creates root compnenet
+ *  Creates root component.
  *
- * @returns react APP
- */
-function App() {
+ * @return {Element}  react APP
+ */ function App() {
   return (
     <>
       <GlobalStyle />

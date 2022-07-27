@@ -1,6 +1,12 @@
-import { React, useState } from 'reuse/Packages';
+import React, { useState } from 'react';
 import ReactFlagsSelect from 'react-flags-select';
-import StyledCountryDropDown from './CountryDropDownStyle';
+
+import StyledCountryDropDown from './CountryDropDown.Style';
+
+/**
+ * Uses react flags select package.
+ * @return {JSX} CountryDropDown component.
+ */
 
 function CountryDropDown() {
   const [selected, setSelected] = useState('');

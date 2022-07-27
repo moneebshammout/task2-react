@@ -1,15 +1,21 @@
-import { React, PropTypes } from 'reuse/Packages';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import Button from 'Components/Button/Button';
+
 import StyledStringDropDown from './String.Drop.Down.Style';
+
 /**
- * @description return StringDropDown component depending on the theme chosed
- * @param {bool} visibility   show or hide menu
- * @param {arrayOf<String>} content   array of strings displayed in StringDropDown
- * @param {String} theme  theme type of buttons
- * @param {String} dropType  desktop themes
- * @returns {JSX}  StringDropDown component
+ *  Create StringDropDown component depending on the theme chosen.
+ * @param {object} props Component variables.
+ * @param {arrayOf<String>} props.content    Displayed in StringDropDown.
+ * @param {String} props.dropType  Desktop themes.
+ * @param {String} props.theme  Theme type of buttons.
+ * @param {bool} props.visibility   Show or hide menu.
+ * @return {JSX}  StringDropDown component.
  */
-function StringDropDown({ visibility, content, theme, dropType }) {
+
+function StringDropDown({ content, dropType, theme, visibility }) {
   return (
     visibility && (
       <StyledStringDropDown dropType={dropType}>
@@ -20,14 +26,17 @@ function StringDropDown({ visibility, content, theme, dropType }) {
     )
   );
 }
+
 StringDropDown.propTypes = {
   content: PropTypes.arrayOf(PropTypes.string).isRequired,
   dropType: PropTypes.string,
   theme: PropTypes.string,
   visibility: PropTypes.bool.isRequired,
 };
+
 StringDropDown.defaultProps = {
   dropType: 'navbar',
   theme: 'smallWhite',
 };
+
 export default StringDropDown;

@@ -1,11 +1,13 @@
-import { styled, css } from 'reuse/Packages';
-import * as constants from 'reuse/Constants';
+import styled, { css } from 'styled-components';
+import { media } from 'Styles/MediaQuery';
+
+import colors from 'Styles/Colors';
 
 const bottomBorderCSS = css`
-  border-bottom: 0.1rem solid ${constants.Grey};
+  border-bottom: 0.1rem solid ${colors.grey};
 `;
 const SearchPrediction = styled.div`
-  @media (min-width: 25rem) {
+  ${media.phone`
     display: flex;
     font-size: 1rem;
     width: 100%;
@@ -14,10 +16,10 @@ const SearchPrediction = styled.div`
     box-sizing: border-box;
     color: black;
     font-weight: 400;
-    border-top: 0.1rem solid ${constants.Grey};
+    border-top: 0.1rem solid ${colors.grey};
     ${(props) => (props.bottomBorder ? bottomBorderCSS : '')};
-  }
-  @media (min-width: 50rem) {
-  }
+  `}
+  ${media.desktop`
+ `}
 `;
 export default SearchPrediction;

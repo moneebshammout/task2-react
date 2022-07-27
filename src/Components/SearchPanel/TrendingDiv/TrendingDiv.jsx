@@ -1,10 +1,14 @@
-import { React } from 'reuse/Packages';
+import React from 'react';
+
 import Icon from 'Components/Icon/Icon';
-import StyledSTrendingDiv from './TrendingDiv.style';
+
+import StyledSTrendingDiv from './TrendingDiv.Style';
+
 /**
- * @description renders trending div in search panel
- * @returns {JSX}  trending div
+ *  Create trending div in search panel.
+ * @return {JSX}  TrendingDiv component.
  */
+
 function TrendingDiv() {
   return (
     <StyledSTrendingDiv>
@@ -14,6 +18,5 @@ function TrendingDiv() {
     </StyledSTrendingDiv>
   );
 }
-// source sans pro 600
 
 export default TrendingDiv;

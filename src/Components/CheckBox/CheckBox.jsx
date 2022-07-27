@@ -1,17 +1,20 @@
-import { React, PropTypes, useState } from 'reuse/Packages';
+import { React, useState } from 'react';
+import PropTypes from 'prop-types';
 
-import StyledCheckBox from './CheckBoxStyle';
-import StyledLabel from './LabelStyle';
+import StyledCheckBox from './CheckBox.Style';
+import StyledLabel from './Label.Style';
 
 /**
- * @description return checkBox component
- * @param {string } label   label text
- * @param {function } onCheckHandler   handel check event
- * @param {boolean } itemVisibility   visibility state
- * @param {boolean } checked   intial checkbox state
- * @returns {JSX}  checkBox
+ *  Create checkBox component.
+ * @param {object} props   Component variables.
+ * @param {boolean } props.checked   Initial checkbox state.
+ * @param {boolean } props.itemVisibility   Visibility state.
+ * @param {function } props.onCheckHandler   Handel check event.
+ * @param {string } props.label   Label text.
+ * @return {JSX}  CheckBox component.
  */
-function CheckBox({ label, onCheckHandler, itemVisibility, checked }) {
+
+function CheckBox({ checked, itemVisibility, label, onCheckHandler }) {
   const [checkState, setCheckState] = useState(checked);
   const toggleCheckBox = () => {
     setCheckState((prevState) => !prevState);

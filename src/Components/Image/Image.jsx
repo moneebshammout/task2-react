@@ -1,12 +1,15 @@
-import { React, PropTypes } from 'reuse/Packages';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import StyledImage from './Image.Style';
 
 /**
- * @description return Image component
- * @param {string} imagePath   absolute path of the Image
- * @returns {JSX}  Image component
+ *  Create Image component.
+ * @param {object} props   Component variables.
+ * @param {string} imagePath   Absolute path of the Image.
+ * @return {JSX}  Image.
  */
+
 function Image({ imagePath }) {
   return (
     <StyledImage>
@@ -14,7 +17,9 @@ function Image({ imagePath }) {
     </StyledImage>
   );
 }
+
 Image.propTypes = {
   imagePath: PropTypes.string.isRequired,
 };
+
 export default Image;

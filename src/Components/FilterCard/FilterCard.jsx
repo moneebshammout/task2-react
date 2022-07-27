@@ -1,22 +1,26 @@
-import { React, PropTypes, useState } from 'reuse/Packages';
-import FilterVisilbeContent from 'Components/FilterVisilbeContent/FilterVisilbeContent';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
+import FilterVisibleContent from 'Components/FilterVisibleContent/FilterVisibleContent';
 import StyledFilterCard from './FilterCard.Style';
 
 /**
- * @description return FilterCard component
- * @param {String} title  title text
- * @param {function} onClick  handel click event
- * @param {ArrauOf(element)} children  children elements jsx
- * @returns {JSX}  FilterDropDown component
+ *  Create FilterCard component.
+ * @param {object} props   Component variables.
+ * @param {array<element>} props.children  Children elements JSX.
+ * @param {function} props.onClick  Handel click event.
+ * @param {String} props.title  Title text.
+ * @return {JSX}  FilterCard component.
  */
-function FilterCard({ title, children, onClick }) {
+
+function FilterCard({ children, onClick, title }) {
   const [showCard, setShowCard] = useState(false);
   const filterClickHandler = () => {
     setShowCard((prevSate) => !prevSate);
   };
   return (
     <StyledFilterCard onClick={onClick}>
-      <FilterVisilbeContent
+      <FilterVisibleContent
         title={title}
         showHiddenContentHandler={filterClickHandler}
       />
@@ -24,13 +28,16 @@ function FilterCard({ title, children, onClick }) {
     </StyledFilterCard>
   );
 }
+
 FilterCard.propTypes = {
-  // used shape because array of elements gives an error
-  // because im using conditional rendreing in the parent component
+  // couldn't use element alone or array of element since
+  // I have a boolean expression in children array
+
   children: PropTypes.arrayOf(PropTypes.shape),
   onClick: PropTypes.func,
   title: PropTypes.string.isRequired,
 };
+
 FilterCard.defaultProps = {
   children: null,
   onClick: null,

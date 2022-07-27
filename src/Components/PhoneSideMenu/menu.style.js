@@ -1,5 +1,6 @@
-import * as constants from 'reuse/Constants';
-import { styled, keyframes, css } from 'reuse/Packages';
+import styled, { keyframes, css } from 'styled-components';
+import { media } from 'Styles/MediaQuery';
+import colors from 'Styles/Colors';
 
 const showKeyFrames = keyframes`
    0% {
@@ -33,9 +34,9 @@ const hideMenu = css`
   display: none;
 `;
 const StyledPhoneMenu = styled.div`
-  @media (min-width: 25rem) {
+  ${media.phone`
     flex-direction: column;
-    background-color: ${constants.Blue};
+    background-color: ${colors.blue};
     width: 85%;
     height: 100%;
     padding: 0.8rem;
@@ -45,41 +46,10 @@ const StyledPhoneMenu = styled.div`
       props.firstRender
         ? hideMenu
         : () => (props.showMenu ? showAnimation : hideAnimation)};
-  }
-  @media (min-width: 50rem) {
+ `}
+  ${media.desktop`
     display: none;
-  }
+ `}
 `;
 
 export default StyledPhoneMenu;
-
-/* @keyframes show {
-    0% {
-      opacity: 0;
-
-      transform: translateX(-100%);
-    }
-    50% {
-      opacity: 1;
-      transform: translateX(90%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes hide {
-    0% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    50% {
-      opacity: 0.8;
-      transform: translateX(60%);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(-100%);
-    }
-  } */

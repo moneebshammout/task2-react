@@ -1,5 +1,6 @@
-import { styled, css } from 'reuse/Packages';
-import * as constants from 'reuse/Constants';
+import styled, { css } from 'styled-components';
+import { media } from 'Styles/MediaQuery';
+import colors from 'Styles/Colors';
 
 const bigWhite = css`
   font-size: 1.3rem;
@@ -7,8 +8,6 @@ const bigWhite = css`
   width: 9rem;
   height: 2.5rem;
 `;
-// const mediumWhite=css`
-// `
 const bigWhiteBlue = css`
   font-size: 1.3rem;
   font-weight: 600;
@@ -18,7 +17,7 @@ const bigWhiteBlue = css`
   align-items: center;
   margin: 2rem 0 2rem 0;
   border-radius: 0.5rem;
-  color: ${constants.Bold_Blue};
+  color: ${colors.boldBlue};
   background-color: white;
 `;
 const smallFade = css`
@@ -60,9 +59,8 @@ const smallGrey = css`
 const bigBlue = css`
   font-size: 1.2rem;
   background-color: ${(props) =>
-    props.disabled ? constants.White : constants.Light_Blue};
-  color: ${(props) =>
-    props.disabled ? constants.Light_Grey : constants.White};
+    props.disabled ? colors.white : colors.lightBlue};
+  color: ${(props) => (props.disabled ? colors.lightGrey : colors.white)};
   width: 90%;
   height: 3rem;
   justify-content: center;
@@ -79,7 +77,7 @@ const language = css`
   border-color: white;
   border-radius: 0.3rem;
   :hover {
-    color: ${constants.Dark_Blue};
+    color: ${colors.darkBlue};
     background-color: white;
   }
 `;
@@ -95,13 +93,13 @@ const themes = {
   smallWhite,
 };
 const StyledButton = styled.button`
-  @media (min-width: 25rem) {
+  ${media.phone`
     display: flex;
     background-color: transparent;
-    color: ${constants.White};
+    color: ${colors.white};
     border: none;
     ${(props) => themes[props.theme]}
-  }
+  `}
 `;
 
 export default StyledButton;

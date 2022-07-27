@@ -1,7 +1,8 @@
-import { styled } from 'reuse/Packages';
+import styled from 'styled-components';
+import { media } from 'Styles/MediaQuery';
 
 const StyledTextField = styled.input`
-  @media (min-width: 25rem) {
+  ${media.phone`
     font-size: 1rem;
     width: 80%;
     height: 80%;
@@ -12,6 +13,6 @@ const StyledTextField = styled.input`
     ::placeholder {
       color: grey;
     }
-  }
+  `}
 `;
 export default StyledTextField;

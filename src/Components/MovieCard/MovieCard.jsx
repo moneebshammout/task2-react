@@ -1,31 +1,35 @@
-import { React, PropTypes, useState } from 'reuse/Packages';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import Title from 'Components/Title/Title';
 import Image from 'Components/Image/Image';
 import Icon from 'Components/Icon/Icon';
-// import DropDownMenu from 'Components/StringDropDown/StringDropDown'
-import StlyedMovieCard from './MovieCard.Style';
-import StyledPosterContainer from './PosterContainerStyle';
-import StyledRightContainer from './rightContainer';
-import StlyedOverFlowContainer from './overFlowContainerStyle';
-import StyledDesktopDotsStyle from './DesktopDotsStyle';
-import StyledDesktopPercentage from './DesktopPercentageStyle';
-// import StyledMovieDropDownMEnu from './MovieDropDownStyle';
+
+import StyledMovieCard from './MovieCard.Style';
+import StyledPosterContainer from './PosterContainer.Style';
+import StyledRightContainer from './rightContainer.Style';
+import StyledOverFlowContainer from './overFlowContainer.Style';
+import StyledDesktopDotsStyle from './DesktopDots.Style';
+import StyledDesktopPercentage from './DesktopPercentage.Style';
+
 /**
- * @description return Movie Card
- * @param {string} title movie title
- * @param {string} date movie date
- * @param {string} description movie overview
- * @param {string} imageURL  movie image url
- * @param {number} percentageRate  movie vote rate
- * @returns {JSX}  Logo Container component
+ *  Create Movie Card.
+ * @param {object} props  Component variables.
+ * @param {string} props.date movie date.
+ * @param {string} props.description movie overview.
+ * @param {string} props.imageURL  movie image url.
+ * @param {number} props.percentageRate  movie vote rate.
+ * @param {string} props.title movie title.
+ * @return {JSX}  Logo Container component.
  */
+
 function MovieCard({ title, description, date, imageURL, percentageRate }) {
   const [blur, setBlur] = useState(false);
   const iconClickHandler = () => {
     setBlur((prevState) => !prevState);
   };
   return (
-    <StlyedMovieCard blur={blur}>
+    <StyledMovieCard blur={blur}>
       <StyledPosterContainer>
         <StyledDesktopDotsStyle>
           <Icon
@@ -48,11 +52,12 @@ function MovieCard({ title, description, date, imageURL, percentageRate }) {
       <StyledRightContainer>
         <Title title={title} theme="moviesBold" />
         <Title title={date} theme="smallLight" />
-        <StlyedOverFlowContainer>{description}</StlyedOverFlowContainer>
+        <StyledOverFlowContainer>{description}</StyledOverFlowContainer>
       </StyledRightContainer>
-    </StlyedMovieCard>
+    </StyledMovieCard>
   );
 }
+
 MovieCard.propTypes = {
   date: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
@@ -60,4 +65,5 @@ MovieCard.propTypes = {
   percentageRate: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
 };
+
 export default MovieCard;

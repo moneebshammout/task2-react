@@ -1,17 +1,18 @@
-import { styled } from 'reuse/Packages';
+import styled from 'styled-components';
+import { media } from 'Styles/MediaQuery';
 
 const StyledSearchBox = styled.div`
-  @media (min-width: 25rem) {
+  ${media.phone`
     font-size: 1rem;
     width: 100%;
     height: 2.75rem;
-    display: flexbox;
+    display: flex;
     align-items: center;
     justify-content: center;
     color: grey;
-  }
-  @media (min-width: 50rem) {
+  `}
+  ${media.desktop`
     width: 120%;
-  }
+  `}
 `;
 export default StyledSearchBox;

@@ -1,14 +1,16 @@
-import { styled, css } from 'reuse/Packages';
-import * as constants from 'reuse/Constants';
+import styled, { css } from 'styled-components';
+// import { media } from 'Styles/MediaQuery';
+
+import colors from 'Styles/Colors';
 
 const selectedCSS = css`
-  color: ${constants.Black};
+  color: ${colors.black};
   font-weight: 700;
-  background-color: ${constants.white_Grey};
+  background-color: ${colors.whiteGrey};
   &:hover,
   :focus {
-    background-color: ${constants.Light_Blue};
-    color: ${constants.White};
+    background-color: ${colors.lightBlue};
+    color: ${colors.White};
   }
 `;
 const StyledOption = styled.div`
@@ -19,15 +21,9 @@ const StyledOption = styled.div`
 
   box-sizing: border-box;
   border: none;
-  background-color: ${constants.White};
+  background-color: ${colors.white};
   //assigning hover effect for the focused option
-  ${(props) =>
-    props.selected === props.content
-      ? selectedCSS
-      : null}/* @media (min-width: 25rem) {
-    width: 100%;
-    height: auto;
-  } */
+  ${(props) => (props.selected === props.content ? selectedCSS : null)}
 `;
 
 export default StyledOption;

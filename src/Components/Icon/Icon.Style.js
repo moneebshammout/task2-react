@@ -1,15 +1,16 @@
-import { styled, css } from 'reuse/Packages';
-import * as constants from 'reuse/Constants';
+import styled, { css } from 'styled-components';
+import { media } from 'Styles/MediaQuery';
+import colors from 'Styles/Colors';
 
 const theme = {
-  black: constants.Black,
-  blue: constants.Light_Blue,
-  grey: constants.Grey,
-  white: constants.White,
+  black: colors.black,
+  blue: colors.lightBlue,
+  grey: colors.grey,
+  white: colors.white,
 };
 const hoverCSS = css`
   :hover {
-    color: ${constants.Light_Blue};
+    color: ${colors.lightBlue};
   }
 `;
 const StyledIcon = styled.i`
@@ -17,8 +18,8 @@ const StyledIcon = styled.i`
   color: ${(props) => theme[props.theme] ?? 'white'};
   display: flex;
   ${(props) => (props.hoverEffect ? hoverCSS : null)};
-  @media (min-width: 25rem) {
-  }
+  ${media.phone`
+  `}
 `;
 
 export default StyledIcon;
