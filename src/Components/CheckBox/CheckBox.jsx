@@ -1,8 +1,7 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import StyledCheckBox from './CheckBox.Style';
-import StyledLabel from './Label.Style';
+import { StyledCheckBox, Label } from './CheckBox.Style';
 
 /**
  *  Create checkBox component.
@@ -22,14 +21,10 @@ function CheckBox({ checked, itemVisibility, label, onCheckHandler }) {
   };
   return (
     itemVisibility && (
-      <StyledLabel
-        htmlFor={label}
-        onClick={toggleCheckBox}
-        checked={checkState}
-      >
+      <Label htmlFor={label} onClick={toggleCheckBox} checked={checkState}>
         <StyledCheckBox name={label} checked={checkState} />
         {label}
-      </StyledLabel>
+      </Label>
     )
   );
 }

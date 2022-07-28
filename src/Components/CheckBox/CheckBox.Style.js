@@ -2,7 +2,25 @@ import styled, { css } from 'styled-components';
 // import {media} from 'Styles/MediaQuery';
 import colors from 'Styles/Colors';
 
-const checkedCSS = css`
+const labelCheckedCSS = css`
+  font-weight: 600;
+`;
+const labelUnCheckedCSS = css`
+  font-weight: 300;
+`;
+const Label = styled.label`
+  display: block;
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  ${(props) => (props.checked ? labelCheckedCSS : labelUnCheckedCSS)}
+`;
+const boxCheckedCSS = css`
   background-color: ${colors.lightBlue};
   ::after {
     display: block;
@@ -18,7 +36,7 @@ const checkedCSS = css`
     transform: rotate(45deg);
   }
 `;
-const unCheckedCSS = css`
+const boxUnCheckedCSS = css`
   background-color: ${colors.white};
   border: solid 0.01rem;
   border-radius: 30%;
@@ -36,7 +54,7 @@ const StyledCheckBox = styled.span`
     position: absolute;
     display: none;
   }
-  ${(props) => (props.checked ? checkedCSS : unCheckedCSS)}
+  ${(props) => (props.checked ? boxCheckedCSS : boxUnCheckedCSS)}
 `;
 
-export default StyledCheckBox;
+export { StyledCheckBox, Label };

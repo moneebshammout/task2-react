@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Image from 'Components/Image/Image';
-import PhoneLogoPath from 'Assets/images/logo.jpg';
+import PhoneLogoPath from 'Assets/Images/Logo.jpg';
 import { desktopLogo } from 'Constants/URL';
 
 import StyledLogoContainer from './Logo.Container.Style';

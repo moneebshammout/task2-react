@@ -4,9 +4,7 @@ import Button from 'Components/Button/Button';
 import StringDropDown from 'Components/StringDropDown/StringDropDown';
 import LogoContainer from 'Components/Logo/LogoContainer';
 
-import StyledFooter from './Footer.Style';
-import StyledDesktopLogo from './DesktopLogo.Style';
-import StyledDesktopLeftSide from './DesktopLeftSide.Style';
+import { StyledFooter, DesktopLogo, DesktopLeftSide } from './Footer.Style';
 
 const basicContent = [
   'About TMDB',
@@ -39,12 +37,12 @@ const LegalContent = ['Terms OF Use', 'API Terms OF Use', 'Privacy Policy'];
 function Footer() {
   return (
     <StyledFooter>
-      <StyledDesktopLeftSide>
-        <StyledDesktopLogo>
+      <DesktopLeftSide>
+        <DesktopLogo>
           <LogoContainer logoType="phone" theme="desktopFooter" />
-        </StyledDesktopLogo>
+        </DesktopLogo>
         <Button theme="bigWhiteBlue" text="JOIN THE COMMUNITY" />
-      </StyledDesktopLeftSide>
+      </DesktopLeftSide>
       <div>
         <Button theme="bigWhite" text="THE BASICS" />
         <StringDropDown content={basicContent} visibility />

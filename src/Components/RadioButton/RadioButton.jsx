@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import StyledCustomRadioButton from './CustomRadioButton.Style';
-import StyledLabel from './Label.Style';
+import { StyledRadioButton, Label } from './RadioButton.Style';
 
 /**
  *  renders a custom radio button
@@ -16,16 +15,16 @@ import StyledLabel from './Label.Style';
 
 function RadioButton({ checked, id, label, onChangeHandler }) {
   return (
-    <StyledLabel
+    <Label
       htmlFor="radio"
       onClick={() => onChangeHandler(id)}
       checked={checked}
       id={id}
     >
-      <StyledCustomRadioButton className="checkmark" checked={checked} />
+      <StyledRadioButton className="checkmark" checked={checked} />
       {label}
       <br />
-    </StyledLabel>
+    </Label>
   );
 }
 

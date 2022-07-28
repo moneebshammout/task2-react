@@ -5,12 +5,14 @@ import Title from 'Components/Title/Title';
 import Image from 'Components/Image/Image';
 import Icon from 'Components/Icon/Icon';
 
-import StyledMovieCard from './MovieCard.Style';
-import StyledPosterContainer from './PosterContainer.Style';
-import StyledRightContainer from './rightContainer.Style';
-import StyledOverFlowContainer from './overFlowContainer.Style';
-import StyledDesktopDotsStyle from './DesktopDots.Style';
-import StyledDesktopPercentage from './DesktopPercentage.Style';
+import {
+  DesktopDots,
+  DesktopPercentage,
+  OverFlowContainer,
+  PosterContainer,
+  RightContainer,
+  StyledMovieCard,
+} from './MovieCard.Style';
 
 /**
  *  Create Movie Card.
@@ -30,30 +32,28 @@ function MovieCard({ title, description, date, imageURL, percentageRate }) {
   };
   return (
     <StyledMovieCard blur={blur}>
-      <StyledPosterContainer>
-        <StyledDesktopDotsStyle>
+      <PosterContainer>
+        <DesktopDots>
           <Icon
             iconName="Hidots"
             onClick={iconClickHandler}
             color="grey"
             hoverEffect
           />
-        </StyledDesktopDotsStyle>
+        </DesktopDots>
         {/* not working its blurs */}
         {/* <StyledMovieDropDownMEnu blur={blur}>
           <DropDownMenu visibility content={['aa','bb']} theme='smallBold' dropType='navDrops'/>
           
         </StyledMovieDropDownMEnu> */}
-        <StyledDesktopPercentage>
-          {`${percentageRate}%`}
-        </StyledDesktopPercentage>
+        <DesktopPercentage>{`${percentageRate}%`}</DesktopPercentage>
         <Image imagePath={imageURL} />
-      </StyledPosterContainer>
-      <StyledRightContainer>
+      </PosterContainer>
+      <RightContainer>
         <Title title={title} theme="moviesBold" />
         <Title title={date} theme="smallLight" />
-        <StyledOverFlowContainer>{description}</StyledOverFlowContainer>
-      </StyledRightContainer>
+        <OverFlowContainer>{description}</OverFlowContainer>
+      </RightContainer>
     </StyledMovieCard>
   );
 }

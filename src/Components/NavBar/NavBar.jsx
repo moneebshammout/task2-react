@@ -8,11 +8,14 @@ import SearchPanel from 'Components/SearchPanel/SearchPanel';
 import DesktopMenu from 'Components/DesktopMenu/DesktopMenu';
 import DropDownMenu from 'Components/StringDropDown/StringDropDown';
 
-import RightIconsWrapper from './Right.Wrapper.Style';
-import StyledUerUtilities from './User.Utilities.Style';
-import { StyledHeader, StyledNavBar } from './NavBar.Style';
-import StyledLeftWrapper from './DesktopLeft.Style';
-import StyledDesktopNavBar from './DesktopNav.Style';
+import {
+  Header,
+  StyledNavBar,
+  RightIconsWrapper,
+  UserUtilities,
+  DesktopLeftWrapper,
+  DesktopNavBar,
+} from './NavBar.Style';
 
 /**
  *  Create nav bar component wrapped by a header.
@@ -72,7 +75,7 @@ function NavBar() {
   return (
     <>
       {navVisible && (
-        <StyledHeader>
+        <Header>
           <StyledNavBar>
             <Icon iconName="HiOutlineMenu" onClick={sideMenuClickHandler} />
             <LogoContainer logoType="phone" />
@@ -91,12 +94,12 @@ function NavBar() {
             </RightIconsWrapper>
           </StyledNavBar>
 
-          <StyledDesktopNavBar>
+          <DesktopNavBar>
             {/* left wrapper */}
-            <StyledLeftWrapper>
+            <DesktopLeftWrapper>
               <LogoContainer logoType="desktop" theme="desktopNav" />
               <DesktopMenu />
-            </StyledLeftWrapper>
+            </DesktopLeftWrapper>
 
             {/* right wrapper */}
             <RightIconsWrapper>
@@ -127,14 +130,14 @@ function NavBar() {
                 onClick={searchIconClickHandler}
               />
             </RightIconsWrapper>
-          </StyledDesktopNavBar>
-        </StyledHeader>
+          </DesktopNavBar>
+        </Header>
       )}
       {showUserUtilities && (
-        <StyledUerUtilities>
+        <UserUtilities>
           <Button key="sign's in" text="Login" theme="smallGrey" />
           <Button key=" sign's out" text="Signup" theme="smallGrey" />
-        </StyledUerUtilities>
+        </UserUtilities>
       )}
       {showSearch && <SearchPanel navVisible={navVisible} />}
       <PhoneSideMenu showMenu={showMenu} />

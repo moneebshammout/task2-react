@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import Title from 'Components/Title/Title';
 
-import StyledSelectMenu from './SelectMenuStyle';
-import StyledOption from './Option.Style';
-import StyledOptionContainer from './Option.Container.Style';
+import { StyledSelectMenu, Option, OptionContainer } from './SelectMenuStyle';
 
 /**
  *  Create SelectMenu component.
@@ -46,10 +44,10 @@ function SelectMenu({ optionsList, selectMenuChangeHandler }) {
   return (
     <StyledSelectMenu onClick={selectMenuOnClickHandler}>
       <Title title={selectTitle} theme="medium" />
-      <StyledOptionContainer>
+      <OptionContainer>
         {showMenu &&
           optionsList.map((option) => (
-            <StyledOption
+            <Option
               key={option}
               onClick={(event) => optionClickHandler(event)}
               id={option}
@@ -57,9 +55,9 @@ function SelectMenu({ optionsList, selectMenuChangeHandler }) {
               content={option}
             >
               {option}
-            </StyledOption>
+            </Option>
           ))}
-      </StyledOptionContainer>
+      </OptionContainer>
     </StyledSelectMenu>
   );
 }

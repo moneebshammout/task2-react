@@ -6,14 +6,14 @@ import StyledImage from './Image.Style';
 /**
  *  Create Image component.
  * @param {object} props   Component variables.
- * @param {string} imagePath   Absolute path of the Image.
+ * @param {string} props.imagePath   Absolute path of the Image.
  * @return {JSX}  Image.
  */
 
 function Image({ imagePath }) {
   return (
     <StyledImage>
-      <img src={imagePath} alt="Logo" loading="lazy" />
+      <img src={imagePath} alt=" not found" loading="lazy" />
     </StyledImage>
   );
 }

@@ -11,47 +11,18 @@ import MovieCard from 'Components/MovieCard/MovieCard';
 import CountryDropDown from 'Components/CountryDropDown/CountryDropDown';
 import Button from 'Components/Button/Button';
 
-import StyledDesktopMoviesContainer from './DesktopMoviesContainer.Style';
-import StyledDesktopFiltersContainer from './DesktopFiltersContainer.Style';
-import StyledInfoPopUp from './InfoPopUp.Style';
-import StyledBody from './Body.Style';
-
-const sortMap = {
-  'Popularity Ascending': 'popularity.asc',
-  'Popularity descending': 'popularity.desc',
-  'Rating Ascending': 'rating.asc',
-  'Rating descending': 'rating.desc',
-  'Release Date Ascending': 'primary_release_date.asc',
-  'Release Date descending': 'primary_release_date.desc',
-  'title A-Z': 'title.asc',
-  'title Z-A': 'title.desc',
-};
-
-const radioButtonList = [
-  'Everything',
-  "Movies I haven't Seen",
-  'Movies I have Seen',
-];
-
-const availabilitiesList = [
-  'Search all availabilities?',
-  'Stream',
-  'Free',
-  'Ads',
-  'Rent',
-  'Buy',
-];
-
-const releaseList = [
-  'Search all Releases?',
-  'Search all Countries?',
-  'Premier',
-  'Theatrical (limited)',
-  'Theatrical',
-  'Digital',
-  'Physical',
-  'Tv',
-];
+import {
+  availabilitiesList,
+  filtersList,
+  releaseList,
+  sortMap,
+} from 'Constants/Content';
+import {
+  DesktopFiltersContainer,
+  DesktopMoviesContainer,
+  InfoPopUp,
+  StyledBody,
+} from './Body.Style';
 
 /**
  * Create Body component.
@@ -61,14 +32,14 @@ const releaseList = [
 function Body() {
   const [showInfo, setShowInfo] = useState(false);
   const [radioBtnState, setRadioBtnState] = useState({
-    [radioButtonList[0]]: false,
-    [radioButtonList[1]]: false,
-    [radioButtonList[2]]: false,
+    [filtersList[0]]: false,
+    [filtersList[1]]: false,
+    [filtersList[2]]: false,
   });
   const [showAvailability, setShowAvailability] = useState(false);
   const [showReleaseDates, setShowReleaseDates] = useState(false);
   const [showSearchButton, setShowSearchButton] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('popularity.asc');
+  const [searchQuery, setSearchQuery] = useState('popularity.desc');
   const [moviePage, setMoviePage] = useState(1);
   const [movies, setMovies] = useState([]);
 
@@ -141,9 +112,9 @@ function Body() {
   const radioBTNChangeHandler = (id) => {
     setRadioBtnState((prevState) => {
       const newData = {
-        [radioButtonList[0]]: false,
-        [radioButtonList[1]]: false,
-        [radioButtonList[2]]: false,
+        [filtersList[0]]: false,
+        [filtersList[1]]: false,
+        [filtersList[2]]: false,
         [id]: !prevState[id],
       };
       return newData;
@@ -168,7 +139,7 @@ function Body() {
 
   return (
     <StyledBody>
-      <StyledDesktopFiltersContainer>
+      <DesktopFiltersContainer>
         <Title title="Popular Movies" theme="popularHeader" />
         {/* SORT DROP DOWN */}
         <FilterCard title="Sort">
@@ -186,9 +157,7 @@ function Body() {
           onClick={(event) => infoIconClickHandler(event)}
         >
           {showInfo && (
-            <StyledInfoPopUp>
-              Log In To Filter Items You&apos;ve Watched
-            </StyledInfoPopUp>
+            <InfoPopUp>Log In To Filter Items You&apos;ve Watched</InfoPopUp>
           )}
           <Title title="Show Me" theme="light">
             <Icon
@@ -200,7 +169,7 @@ function Body() {
           </Title>
 
           <br />
-          {radioButtonList.map((label) => (
+          {filtersList.map((label) => (
             <RadioButton
               label={label}
               id={label}
@@ -255,8 +224,8 @@ function Body() {
           onClick={searchButtonClickHandler}
           disabled={!showSearchButton}
         />
-      </StyledDesktopFiltersContainer>
-      <StyledDesktopMoviesContainer>
+      </DesktopFiltersContainer>
+      <DesktopMoviesContainer>
         {movies.map((movie) => (
           <MovieCard
             title={movie.title}
@@ -274,7 +243,7 @@ function Body() {
           text="LoadMore"
           onClick={loadMoreClickHandler}
         />
-      </StyledDesktopMoviesContainer>
+      </DesktopMoviesContainer>
     </StyledBody>
   );
 }

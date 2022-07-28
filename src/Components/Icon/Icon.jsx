@@ -1,22 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import * as Heroicons from 'react-icons/hi';
-import * as AIicons from 'react-icons/ai';
+import {
+  HiDotsCircleHorizontal,
+  HiUser,
+  HiOutlineChevronDown,
+  HiOutlineChevronRight,
+  HiOutlineMenu,
+  HiOutlineTrendingUp,
+  HiPlus,
+  HiQuestionMarkCircle,
+  HiSearch,
+} from 'react-icons/hi';
+import { AiOutlineClose } from 'react-icons/ai';
 
 import StyledIcon from './Icon.Style';
 
 const icons = {
-  AiOutlineClose: <AIicons.AiOutlineClose />,
-  HiOutlineChevronDown: <Heroicons.HiOutlineChevronDown />,
-  HiOutlineChevronRight: <Heroicons.HiOutlineChevronRight />,
-  HiOutlineMenu: <Heroicons.HiOutlineMenu />,
-  HiOutlineTrendingUp: <Heroicons.HiOutlineTrendingUp />,
-  HiPlus: <Heroicons.HiPlus />,
-  HiQuestion: <Heroicons.HiQuestionMarkCircle />,
-  HiSearch: <Heroicons.HiSearch />,
-  HiUser: <Heroicons.HiUser />,
-  Hidots: <Heroicons.HiDotsCircleHorizontal />,
+  AiOutlineClose: <AiOutlineClose />,
+  HiOutlineChevronDown: <HiOutlineChevronDown />,
+  HiOutlineChevronRight: <HiOutlineChevronRight />,
+  HiOutlineMenu: <HiOutlineMenu />,
+  HiOutlineTrendingUp: <HiOutlineTrendingUp />,
+  HiPlus: <HiPlus />,
+  HiQuestion: <HiQuestionMarkCircle />,
+  HiSearch: <HiSearch />,
+  HiUser: <HiUser />,
+  Hidots: <HiDotsCircleHorizontal />,
 };
 
 /**
