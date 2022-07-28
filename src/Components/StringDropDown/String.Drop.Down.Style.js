@@ -1,24 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { media } from 'Styles/MediaQuery';
 
 import colors from 'Styles/Colors';
 
-const navDrops = css`
-  position: absolute;
-  background-color: white;
-  cursor: pointer;
-  width: 8rem;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.5rem;
-`;
-const movieDrops = css``;
-const footerDrops = css``;
-const types = {
-  footerDrops,
-  movieDrops,
-  navDrops,
-};
 const StyledStringDropDown = styled.div`
   ${media.phone`
     display: flex;
@@ -29,7 +13,18 @@ const StyledStringDropDown = styled.div`
     padding-bottom: 1rem;
  `}
   ${media.desktop`
-    ${(props) => types[props.dropType]};
+    ${(props) =>
+      props.dropType === 'navDrops'
+        ? {
+            'align-items': 'center',
+            'background-color': 'white',
+            'border-radius': '0.5rem',
+            cursor: 'pointer',
+            'justify-content': 'center',
+            position: 'absolute',
+            width: '8rem',
+          }
+        : ''};
   `}
 `;
 export default StyledStringDropDown;

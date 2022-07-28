@@ -8,13 +8,13 @@ import StyledButton from './Button.Style';
  * @param {object} props   Component variables.
  * @param {boolean} props.disabled  Button state enabled or disabled.
  * @param {Function} props.onClick OnClick event handler.
- * @param {Function} props.onHoverHandler OnHover event handler.
+ * @param {Function} props.onHover OnHover event handler.
  * @param {string} props.text    Text inside the button.
  * @param {string} props.theme   Name of the theme.
  * @return {JSX}  Button component.
  */
 
-function Button({ text, theme, disabled, onClick, onHoverHandler }) {
+function Button({ text, theme, disabled, onClick, onHover }) {
   if (disabled) {
     return (
       <StyledButton theme={theme} onClick={onClick} disabled>
@@ -26,8 +26,8 @@ function Button({ text, theme, disabled, onClick, onHoverHandler }) {
     <StyledButton
       theme={theme}
       onClick={onClick}
-      onMouseOver={onHoverHandler}
-      onMouseOut={onHoverHandler}
+      onMouseOver={onHover}
+      onMouseOut={onHover}
     >
       {text}
     </StyledButton>
@@ -36,14 +36,25 @@ function Button({ text, theme, disabled, onClick, onHoverHandler }) {
 Button.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  onHoverHandler: PropTypes.func,
+  onHover: PropTypes.func,
   text: PropTypes.string.isRequired,
-  theme: PropTypes.string.isRequired,
+  theme: PropTypes.oneOf([
+    'bigBlue',
+    'bigWhite',
+    'bigWhiteBlue',
+    'language',
+    'smallBlack',
+    'smallDesktopWhite',
+    'smallFade',
+    'smallDarkGrey',
+    'smallWhite',
+  ]),
 };
 Button.defaultProps = {
   disabled: false,
   onClick: null,
-  onHoverHandler: null,
+  onHover: null,
+  theme: 'bigWhite',
 };
 
 export default Button;

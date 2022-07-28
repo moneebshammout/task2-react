@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import LogoContainer from 'Components/Logo/LogoContainer';
 import Icon from 'Components/Icon/Icon';
@@ -26,28 +26,8 @@ function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
   const [showUserUtilities, setShowUserUtilities] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  const [navVisible, setNavVisible] = useState(true);
   // desktop states
   const [showPlusDrop, setShowPlusDrop] = useState(false);
-  /**
-   *  listens to user scroll to hide nav bar
-   * @return react APP
-   */
-  const listenToScroll = () => {
-    const heightToHideFrom = 170;
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    if (winScroll > heightToHideFrom) {
-      if (navVisible) setNavVisible(false);
-    } else {
-      setNavVisible(true);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener('scroll', listenToScroll);
-    return () => window.removeEventListener('scroll', listenToScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   /**
    *  show or hide side menu using state on click
    * @return null
@@ -74,72 +54,73 @@ function NavBar() {
   };
   return (
     <>
-      {navVisible && (
-        <Header>
-          <StyledNavBar>
-            <Icon iconName="HiOutlineMenu" onClick={sideMenuClickHandler} />
-            <LogoContainer logoType="phone" />
-            <RightIconsWrapper>
-              <Icon
-                iconName="HiUser"
-                onClick={userUtilitiesClickHandler}
-                onBlur={userUtilitiesClickHandler}
-              />
-              &nbsp; &nbsp;
-              <Icon
-                iconName={showSearch ? 'AiOutlineClose' : 'HiSearch'}
-                color={showSearch ? null : 'blue'}
-                onClick={searchIconClickHandler}
-              />
-            </RightIconsWrapper>
-          </StyledNavBar>
+      <Header>
+        <StyledNavBar>
+          <Icon iconName="HiOutlineMenu" onClick={sideMenuClickHandler} />
 
-          <DesktopNavBar>
-            {/* left wrapper */}
-            <DesktopLeftWrapper>
-              <LogoContainer logoType="desktop" theme="desktopNav" />
-              <DesktopMenu />
-            </DesktopLeftWrapper>
+          <LogoContainer logoType="phone" />
+          <RightIconsWrapper>
+            <Icon
+              iconName="HiUser"
+              onClick={userUtilitiesClickHandler}
+              onBlur={userUtilitiesClickHandler}
+            />
+            &nbsp; &nbsp;
+            <Icon
+              iconName={showSearch ? 'AiOutlineClose' : 'HiSearch'}
+              color={showSearch ? 'white' : 'blue'}
+              onClick={searchIconClickHandler}
+            />
+          </RightIconsWrapper>
+        </StyledNavBar>
 
-            {/* right wrapper */}
-            <RightIconsWrapper>
-              <div>
-                <Icon
-                  iconName="HiPlus"
-                  color="white"
-                  onClick={plusClickHandler}
+        <DesktopNavBar>
+          {/* left wrapper */}
+          <DesktopLeftWrapper>
+            <LogoContainer logoType="desktop" theme="desktopNav" />
+            <DesktopMenu />
+          </DesktopLeftWrapper>
+
+          {/* right wrapper */}
+          <RightIconsWrapper>
+            <div>
+              <Icon
+                iconName="HiPlus"
+                color="white"
+                onClick={plusClickHandler}
+              />
+              {showPlusDrop && (
+                <DropDownMenu
+                  visibility
+                  content={[
+                    'Cant find  a movie or tv show',
+                    'login or create one',
+                  ]}
+                  dropType="navDrops"
+                  theme="smallBlack"
                 />
-                {showPlusDrop && (
-                  <DropDownMenu
-                    visibility
-                    content={[
-                      'Cant find  a movie or tv show',
-                      'login or create one',
-                    ]}
-                    dropType="navDrops"
-                    theme="smallBlack"
-                  />
-                )}
-              </div>
-              <Button text="En" theme="language" />
-              <Button text="Login" theme="smallDesktopWhite" />
-              <Button text="Join TMDB" theme="smallDesktopWhite" />
-              <Icon
-                iconName={showSearch ? 'AiOutlineClose' : 'HiSearch'}
-                color={showSearch ? null : 'blue'}
-                onClick={searchIconClickHandler}
-              />
-            </RightIconsWrapper>
-          </DesktopNavBar>
-        </Header>
-      )}
+              )}
+            </div>
+            <Button text="En" theme="language" />
+            <Button text="Login" theme="smallDesktopWhite" />
+            <Button text="Join TMDB" theme="smallDesktopWhite" />
+            <Icon
+              iconName={showSearch ? 'AiOutlineClose' : 'HiSearch'}
+              color={showSearch ? 'white' : 'blue'}
+              onClick={searchIconClickHandler}
+            />
+          </RightIconsWrapper>
+        </DesktopNavBar>
+      </Header>
+
       {showUserUtilities && (
         <UserUtilities>
-          <Button key="sign's in" text="Login" theme="smallGrey" />
-          <Button key=" sign's out" text="Signup" theme="smallGrey" />
+          <Button key="sign's in" text="Login" theme="smallDarkGrey" />
+          <Button key=" sign's out" text="Signup" theme="smallDarkGrey" />
         </UserUtilities>
       )}
-      {showSearch && <SearchPanel navVisible={navVisible} />}
+      {showSearch && <SearchPanel />}
+
       <PhoneSideMenu showMenu={showMenu} />
     </>
   );

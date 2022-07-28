@@ -41,7 +41,7 @@ const StyledBody = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   padding-left: 1.3rem;
-  padding-top: 4rem;
+  padding-top: 1.2rem;
   ${media.desktop`
     flex-direction: row;
     flex-wrap: wrap;

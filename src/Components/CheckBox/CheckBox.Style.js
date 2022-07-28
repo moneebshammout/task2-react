@@ -1,13 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 // import {media} from 'Styles/MediaQuery';
 import colors from 'Styles/Colors';
 
-const labelCheckedCSS = css`
-  font-weight: 600;
-`;
-const labelUnCheckedCSS = css`
-  font-weight: 300;
-`;
 const Label = styled.label`
   display: block;
   position: relative;
@@ -18,11 +12,20 @@ const Label = styled.label`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  ${(props) => (props.checked ? labelCheckedCSS : labelUnCheckedCSS)}
+  font-weight: ${(props) => (props.checked ? '600' : '300')};
 `;
-const boxCheckedCSS = css`
-  background-color: ${colors.lightBlue};
+
+const StyledCheckBox = styled.span`
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  background-color: #eee;
   ::after {
+    // For displaying the check mark
+    content: '';
+    position: absolute;
     display: block;
     justify-content: center;
     left: 0.3rem;
@@ -35,26 +38,17 @@ const boxCheckedCSS = css`
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-`;
-const boxUnCheckedCSS = css`
-  background-color: ${colors.white};
-  border: solid 0.01rem;
-  border-radius: 30%;
-  border-color: ${colors.lightBlue};
-`;
-const StyledCheckBox = styled.span`
-  width: 1.2rem;
-  height: 1.2rem;
-  position: absolute;
-  top: 0;
-  left: 5%;
-  background-color: #eee;
-  ::after {
-    content: '';
-    position: absolute;
-    display: none;
-  }
-  ${(props) => (props.checked ? boxCheckedCSS : boxUnCheckedCSS)}
+
+  ${(props) =>
+    props.checked
+      ? {
+          'background-color': `${colors.lightBlue}`,
+        }
+      : {
+          'background-color': `${colors.white}`,
+          border: `solid 0.01rem ${colors.lightBlue}`,
+          'border-radius': '30%',
+        }};
 `;
 
 export { StyledCheckBox, Label };

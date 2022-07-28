@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { media } from 'Styles/MediaQuery';
 import colors from 'Styles/Colors';
 
@@ -55,6 +55,7 @@ const OverFlowContainer = styled.div`
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
  `}
+
   ${media.desktop`
     display: none;
   `}
@@ -86,10 +87,6 @@ const RightContainer = styled.div`
   `}
 `;
 
-const blurCSS = css`
-  -webkit-filter: blur(0.3rem);
-  filter: blur(0.3rem);
-`;
 const StyledMovieCard = styled.div`
   ${media.phone`
     height: auto;
@@ -100,16 +97,22 @@ const StyledMovieCard = styled.div`
     border-color: ${colors.whiteGrey};
     margin-bottom: 0.5rem;
   `}
+
   ${media.desktop`
     margin: 1rem;
-
     max-height: 20rem;
     width: 17%;
     border: none;
     :hover {
       cursor: pointer;
     }
-    ${(props) => (props.blur ? blurCSS : null)}
+    ${(props) =>
+      props.blur
+        ? {
+            '-webkit-filter': `blur(0.3rem)`,
+            filter: `blur(0.3rem)`,
+          }
+        : null};
   `}
 `;
 export {

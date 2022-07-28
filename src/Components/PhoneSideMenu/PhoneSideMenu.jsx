@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from 'Components/Button/Button';
@@ -25,6 +25,7 @@ function PhoneSideMenu({ showMenu }) {
     people: false,
     tv: false,
   });
+  const phoneMenu = useRef('');
 
   /**
    * Show or hide drop downs using setShowState.
@@ -38,12 +39,8 @@ function PhoneSideMenu({ showMenu }) {
     });
   };
 
-  // TODO: preserving first render state to disable initial animation
-
-  const firstRender = useRef(true);
-
   const component = (
-    <StyledPhoneMenu showMenu={showMenu} firstRender={firstRender.current}>
+    <StyledPhoneMenu showMenu={showMenu} ref={phoneMenu} id="phoneSideMenu">
       <Button
         theme="bigWhite"
         onClick={() => dropDownHandler('movies')}
@@ -65,12 +62,6 @@ function PhoneSideMenu({ showMenu }) {
       <DropDownMenu visibility content={visibleContent} theme="smallFade" />
     </StyledPhoneMenu>
   );
-
-  useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-    }
-  });
   return component;
 }
 

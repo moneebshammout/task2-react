@@ -43,7 +43,7 @@ function SelectMenu({ optionsList, selectMenuChangeHandler }) {
 
   return (
     <StyledSelectMenu onClick={selectMenuOnClickHandler}>
-      <Title title={selectTitle} theme="medium" />
+      <Title title={selectTitle} theme="selectTitle" />
       <OptionContainer>
         {showMenu &&
           optionsList.map((option) => (

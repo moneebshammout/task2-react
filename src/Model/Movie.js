@@ -15,6 +15,6 @@ Movie.FromJson = (json) =>
     json.release_date,
     json.overview,
     json.id,
-    json.vote_average * 10
+    json.vote_average
   );
 export default Movie;

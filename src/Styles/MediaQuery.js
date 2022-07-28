@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 export const breakpoint = {
   desktop: '50rem',
-  phone: '25rem',
+  phone: '0rem',
 };
 
 export const media = {

@@ -1,15 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { media } from 'Styles/MediaQuery';
 
 import colors from 'Styles/Colors';
 
-const underNav = css`
-  bottom: 45%;
-  padding-bottom: 0;
-`;
-const overrideNav = css`
-  padding-bottom: 4rem;
-`;
 const StyledSearchPanel = styled.div`
   ${media.phone`
     display: block;
@@ -18,7 +11,8 @@ const StyledSearchPanel = styled.div`
     color: grey;
     position: fixed;
     background-color: ${colors.white};
-    ${(props) => (props.navVisible ? underNav : overrideNav)};
+    bottom: 42%;
+    padding-bottom: 0;
     margin-bottom: 2.5rem;
  `}
   ${media.desktop`

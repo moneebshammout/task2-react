@@ -3,14 +3,17 @@ import { media } from 'Styles/MediaQuery';
 import colors from 'Styles/Colors';
 
 const Header = styled.header`
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   ${media.phone`
     background-color: ${colors.darkBlue};
     height: 4rem;
     width: 100%;
  `}
   ${media.desktop`
-    position: relative;
+  
   `}
 `;
 const StyledNavBar = styled.nav`
@@ -50,20 +53,18 @@ const UserUtilities = styled.div`
     background-color: ${colors.white};
     bottom: 82.5%;
     left: 51.5%;
+    z-index:1;
     display: block !important;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     width: 12rem;
     height: 6rem;
-    box-shadow: 0.01rem 0.01rem 0.01rem 0.01rem grey;
-    box-shadow: rgba(0, 0, 0, 0.24) 0.1rem 0.1rem 0.1rem 0.1rem;
+    border: solid 0.01rem  rgba(33,37,41,0.15);
     justify-content: space-between;
-
-    white-space: nowrap;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     > * {
       &:first-child {
-        border-bottom: solid 0.001rem grey;
+        border-bottom: solid 0.001rem rgba(33,37,41,0.15);
       }
       &:first-child:hover {
         background-color: ${colors.darkBlue};
@@ -87,6 +88,7 @@ const DesktopNavBar = styled.nav`
     position: relative;
     align-items: center;
     justify-content: space-evenly;
+    
   `}
 `;
 const DesktopLeftWrapper = styled.span`

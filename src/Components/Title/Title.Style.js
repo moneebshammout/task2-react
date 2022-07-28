@@ -8,8 +8,15 @@ const light = css`
   font-weight: 300;
 `;
 const medium = css`
-  font-size: 1rem;
+  ${light}
   font-weight: 400;
+`;
+const selectTitle = css`
+  ${medium}
+  font-size:0.8;
+  text-align: center;
+  align-items: center;
+  padding-top: 0.6rem;
 `;
 const bold = css`
   font-size: 1.6rem;
@@ -17,8 +24,8 @@ const bold = css`
 `;
 const popularHeader = css`
   ${media.phone`
-    font-size: 1.6rem;
-    font-weight: 600;
+    ${bold}
+    padding-bottom:1.5rem;
   `}
   ${media.desktop`
     position: absolute;
@@ -27,8 +34,8 @@ const popularHeader = css`
   `}
 `;
 const smallBold = css`
+  ${bold}
   font-size: 1rem;
-  font-weight: 600;
 `;
 const moviesBold = css`
   font-size: 1rem;
@@ -39,11 +46,10 @@ const moviesBold = css`
   }
 `;
 const smallLight = css`
+  ${light}
   font-size: 0.8rem;
-  font-weight: 300;
   ${media.desktop`
-    font-size: 1rem;
-    font-weight: 400;
+   ${medium}
     color: rgba(0, 0, 0, 6);
  `}
 `;
@@ -53,6 +59,7 @@ const theme = {
   medium,
   moviesBold,
   popularHeader,
+  selectTitle,
   smallBold,
   smallLight,
 };

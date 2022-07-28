@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
-import Movie from 'Model/movie';
+import Movie from 'Model/Movie';
+
 /**
  *  Fetch movies API.
  * @param {number} pageNumber page number.
@@ -11,11 +12,7 @@ import Movie from 'Model/movie';
     const response = await fetch(
       `https://api.themoviedb.org/3/discover/movie/?api_key=1ed03abf259db3275f034b5a5abe9f9e&language=en-US&page=${pageNumber}&sort_by=${sortQuery}`
     );
-    let movieList = [];
-    await response.json().then((data) => {
-      movieList = data.results.map((movie) => Movie.FromJson(movie));
-    });
-    return movieList;
+    return response;
   } catch (error) {
     return error;
   }
@@ -23,4 +20,21 @@ import Movie from 'Model/movie';
 fetchMovies.PropTypes = {
   pageNumber: PropTypes.number.isRequired,
 };
-export default fetchMovies;
+
+/**
+ * creates a movie list to make data easy to use
+ * @param {object} response  response coming from API
+ * @return {ArrayOf(Movie)}
+ */
+
+const getMoviesList = async (response) => {
+  if (response.status >= 400) {
+    return [];
+  }
+  const movieList = await response
+    .json()
+    .then((data) => data.results.map((movie) => Movie.FromJson(movie)));
+  return movieList;
+};
+
+export { fetchMovies, getMoviesList };

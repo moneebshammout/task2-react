@@ -55,7 +55,7 @@ function Icon({ color, hoverEffect, iconName, id, onClick }) {
 
 Icon.propTypes = {
   // iconFamily: PropTypes.string.isRequired,
-  color: PropTypes.string,
+  color: PropTypes.oneOf(['black', 'blue', 'grey', 'white', 'lightGrey']),
   hoverEffect: PropTypes.bool,
   iconName: PropTypes.string.isRequired,
   id: PropTypes.string,

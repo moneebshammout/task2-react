@@ -1,27 +1,28 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { media } from 'Styles/MediaQuery';
 
-const desktopNav = css`
-  width: 1.5em;
-  height: 1.5rem;
-`;
-const desktopFooter = css`
-  width: 4rem;
-  height: 10rem;
-  display: flex;
-`;
-const theme = {
-  desktopFooter,
-  desktopNav,
-};
 const LogoContainer = styled.div`
   ${media.phone`
-    width: 4.2rem;
-    height: 4.2rem;
+    width: 3rem;
+    height: 4.6rem;
   `}
   ${media.desktop`
     display: flex;
-    ${(props) => theme[props.theme]};
+    ${(props) =>
+      props.theme === 'desktopFooter'
+        ? {
+            display: 'flex',
+            height: '10rem',
+            width: '4rem',
+          }
+        : null};
+    ${(props) =>
+      props.theme === 'desktopNav'
+        ? {
+            height: '1.5rem',
+            width: '1.5rem',
+          }
+        : null};
   `}
 `;
 

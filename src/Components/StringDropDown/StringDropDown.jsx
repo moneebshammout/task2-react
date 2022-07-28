@@ -35,7 +35,7 @@ StringDropDown.propTypes = {
 };
 
 StringDropDown.defaultProps = {
-  dropType: 'navbar',
+  dropType: '',
   theme: 'smallWhite',
 };
 

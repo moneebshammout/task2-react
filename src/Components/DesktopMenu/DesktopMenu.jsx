@@ -45,7 +45,7 @@ function DesktopMenu() {
         <Button
           theme="smallDesktopWhite"
           text="Movies"
-          onHoverHandler={() => onHoverHandler('movies')}
+          onHover={() => onHoverHandler('movies')}
         />
         {showState.movies && (
           <DropDownMenu
@@ -60,7 +60,7 @@ function DesktopMenu() {
         <Button
           theme="smallDesktopWhite"
           text="TV Shows"
-          onHoverHandler={() => onHoverHandler('tv')}
+          onHover={() => onHoverHandler('tv')}
         />
         {showState.tv && (
           <DropDownMenu
@@ -75,7 +75,7 @@ function DesktopMenu() {
         <Button
           theme="smallDesktopWhite"
           text="People"
-          onHoverHandler={() => onHoverHandler('people')}
+          onHover={() => onHoverHandler('people')}
         />
         {showState.people && (
           <DropDownMenu
@@ -90,7 +90,7 @@ function DesktopMenu() {
         <Button
           theme="smallDesktopWhite"
           text="More"
-          onHoverHandler={() => onHoverHandler('more')}
+          onHover={() => onHoverHandler('more')}
         />
         {showState.more && (
           <DropDownMenu

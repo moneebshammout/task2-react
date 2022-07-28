@@ -46,10 +46,10 @@ const smallBlack = css`
   padding-bottom: 0.7rem;
   color: black;
 `;
-const smallGrey = css`
+const smallDarkGrey = css`
   font-size: 0.8rem;
-  color: grey;
-  font-weight: 900;
+  color: black;
+  font-weight: 600;
   width: 100%;
   height: 3rem;
   width: 12rem;
@@ -87,9 +87,9 @@ const themes = {
   bigWhiteBlue,
   language,
   smallBlack,
+  smallDarkGrey,
   smallDesktopWhite,
   smallFade,
-  smallGrey,
   smallWhite,
 };
 const StyledButton = styled.button`

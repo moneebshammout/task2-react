@@ -49,7 +49,45 @@ const releaseList = [
   'Physical',
   'Tv',
 ];
+const basicContent = [
+  'About TMDB',
+  'Contact Us',
+  'Support Forums',
+  'API',
+  'System Status',
+];
+
+const involvedContent = [
+  'Contribution Bible',
+  'ADd new movie',
+  'Add new TV show',
+];
+
+const communityContent = [
+  'Guidelines',
+  'Discussions',
+  'Leaderboard',
+  'Twitter',
+];
+
+const LegalContent = ['Terms OF Use', 'API Terms OF Use', 'Privacy Policy'];
+const predictionsList = [
+  'Jurassic World Dominion',
+  'The Black Phone',
+  'Lightyear',
+  'Thor: Love and Thunder',
+  'Resident Evil',
+  'Doctor Strange  in the Multiverse Madness',
+  'Stranger Things',
+  'The Forgiven : Part 2. The Other One',
+  'Virgin River',
+];
 export {
+  predictionsList,
+  basicContent,
+  LegalContent,
+  communityContent,
+  involvedContent,
   moviesContent,
   peopleContent,
   tvContent,

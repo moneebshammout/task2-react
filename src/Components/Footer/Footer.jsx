@@ -4,30 +4,13 @@ import Button from 'Components/Button/Button';
 import StringDropDown from 'Components/StringDropDown/StringDropDown';
 import LogoContainer from 'Components/Logo/LogoContainer';
 
+import {
+  basicContent,
+  LegalContent,
+  communityContent,
+  involvedContent,
+} from 'Constants/Content';
 import { StyledFooter, DesktopLogo, DesktopLeftSide } from './Footer.Style';
-
-const basicContent = [
-  'About TMDB',
-  'Contact Us',
-  'Support Forums',
-  'API',
-  'System Status',
-];
-
-const involvedContent = [
-  'Contribution Bible',
-  'ADd new movie',
-  'Add new TV show',
-];
-
-const communityContent = [
-  'Guidelines',
-  'Discussions',
-  'Leaderboard',
-  'Twitter',
-];
-
-const LegalContent = ['Terms OF Use', 'API Terms OF Use', 'Privacy Policy'];
 
 /**
  *  Create Footer component.
@@ -45,19 +28,27 @@ function Footer() {
       </DesktopLeftSide>
       <div>
         <Button theme="bigWhite" text="THE BASICS" />
-        <StringDropDown content={basicContent} visibility />
+        <StringDropDown content={basicContent} visibility dropType="navDrops" />
       </div>
       <div>
         <Button theme="bigWhite" text="GET INVOLVED" />
-        <StringDropDown content={involvedContent} visibility />
+        <StringDropDown
+          content={involvedContent}
+          visibility
+          dropType="navDrops"
+        />
       </div>
       <div>
         <Button theme="bigWhite" text="COMMUNITY" />
-        <StringDropDown content={communityContent} visibility />
+        <StringDropDown
+          content={communityContent}
+          visibility
+          dropType="navDrops"
+        />
       </div>
       <div>
         <Button theme="bigWhite" text="LEGAL" />
-        <StringDropDown content={LegalContent} visibility />
+        <StringDropDown content={LegalContent} visibility dropType="navDrops" />
       </div>
     </StyledFooter>
   );

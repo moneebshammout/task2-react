@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import fetchMovies from 'Service/Movies.Service';
+import { fetchMovies, getMoviesList } from 'Service/Movies.Service';
 
 import Title from 'Components/Title/Title';
 import FilterCard from 'Components/FilterCard/FilterCard';
@@ -45,12 +45,14 @@ function Body() {
 
   /**
    * Shortcut for fetch movie service.
-   * @param {array(movie)} oldMovies Previous movies list.
+   * @param {arrayOf(movie)} oldMovies Previous movies list.
    */
 
   const fetchMoviesShortcut = async (oldMovies) => {
-    await fetchMovies(moviePage, searchQuery).then((newMovies) => {
-      setMovies(oldMovies.concat(newMovies));
+    await fetchMovies(moviePage, searchQuery).then(async (response) => {
+      await getMoviesList(response).then((newMovies) => {
+        setMovies(oldMovies.concat(newMovies));
+      });
     });
   };
 
@@ -109,7 +111,7 @@ function Body() {
    * @param {String}  id Radio button identifier.
    */
 
-  const radioBTNChangeHandler = (id) => {
+  const filtersChangeHandler = (id) => {
     setRadioBtnState((prevState) => {
       const newData = {
         [filtersList[0]]: false,
@@ -144,6 +146,7 @@ function Body() {
         {/* SORT DROP DOWN */}
         <FilterCard title="Sort">
           <Title title="Sort Results By" theme="light" />
+          <br />
           <SelectMenu
             optionsList={Object.keys(sortMap)}
             selectMenuChangeHandler={sortFiltersClickHandler}
@@ -174,7 +177,7 @@ function Body() {
               label={label}
               id={label}
               key={label}
-              onChangeHandler={radioBTNChangeHandler}
+              onChangeHandler={filtersChangeHandler}
               checked={radioBtnState[label]}
             />
           ))}

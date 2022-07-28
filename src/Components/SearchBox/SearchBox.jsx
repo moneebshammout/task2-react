@@ -34,7 +34,7 @@ function SearchBox({ leftIcon, placeHolder, rightIcon }) {
         <Icon
           iconName={rightIcon}
           onClick={onClickRightIconHandler}
-          color="grey"
+          color="lightGrey"
         />
       </>
     </StyledSearchBox>

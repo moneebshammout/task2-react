@@ -21,14 +21,16 @@ const StyledFooter = styled.footer`
   height: auto;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
   padding-left: 1rem;
-
+  min-height: 100%;
+  margin: 0 auto -9.6rem;
+  box-sizing: border-box;
   background-color: ${colors.darkBlue};
   ${media.desktop`
-    flex-direction: row;
+    {flex-direction: row;
+
     justify-content: center;
-    padding-top: 6rem;
+    padding-top: 4rem;}
   `}
 `;
 

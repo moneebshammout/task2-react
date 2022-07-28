@@ -1,11 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { media } from 'Styles/MediaQuery';
 
-import colors from 'Styles/Colors';
-
-const bottomBorderCSS = css`
-  border-bottom: 0.1rem solid ${colors.grey};
-`;
 const SearchPrediction = styled.div`
   ${media.phone`
     display: flex;
@@ -16,8 +11,11 @@ const SearchPrediction = styled.div`
     box-sizing: border-box;
     color: black;
     font-weight: 400;
-    border-top: 0.1rem solid ${colors.grey};
-    ${(props) => (props.bottomBorder ? bottomBorderCSS : '')};
+    border-top: 0.1rem solid rgb(227,227,227);
+    ${(props) =>
+      props.bottomBorder
+        ? { 'border-bottom': `0.1rem solid rgb(227,227,227)` }
+        : ''};
   `}
   ${media.desktop`
  `}
