@@ -7,18 +7,28 @@ const theme = {
   blue: colors.lightBlue,
   grey: colors.grey,
   lightGrey: colors.lightGrey,
+  transparent: 'transparent',
   white: colors.white,
 };
 
 const StyledIcon = styled.i`
   font-size: 1.4rem;
-  color: ${(props) => theme[props.theme]};
   display: flex;
+  color: ${(props) => theme[props.theme]};
+  ${(props) =>
+    props.theme === 'transparent'
+      ? {
+          color: colors.white,
+          'font-size': '1.5rem',
+          opacity: 0.5,
+        }
+      : {}};
   &:hover {
     ${(props) =>
       props.hoverEffect
         ? {
             color: `${colors.lightBlue}`,
+            opacity: 1,
           }
         : ''}
   }

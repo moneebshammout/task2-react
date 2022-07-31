@@ -27,28 +27,40 @@ function Footer() {
         <Button theme="bigWhiteBlue" text="JOIN THE COMMUNITY" />
       </DesktopLeftSide>
       <div>
-        <Button theme="bigWhite" text="THE BASICS" />
-        <StringDropDown content={basicContent} visibility dropType="navDrops" />
+        <Button theme="bigWhiteFooter" text="THE BASICS" />
+        <StringDropDown
+          content={basicContent}
+          visibility
+          dropType="footerDrops"
+          theme="footerDrops"
+        />
       </div>
       <div>
-        <Button theme="bigWhite" text="GET INVOLVED" />
+        <Button theme="bigWhiteFooter" text="GET INVOLVED" />
         <StringDropDown
           content={involvedContent}
           visibility
-          dropType="navDrops"
+          dropType="footerDrops"
+          theme="footerDrops"
         />
       </div>
       <div>
-        <Button theme="bigWhite" text="COMMUNITY" />
+        <Button theme="bigWhiteFooter" text="COMMUNITY" />
         <StringDropDown
           content={communityContent}
           visibility
-          dropType="navDrops"
+          dropType="footerDrops"
+          theme="footerDrops"
         />
       </div>
       <div>
-        <Button theme="bigWhite" text="LEGAL" />
-        <StringDropDown content={LegalContent} visibility dropType="navDrops" />
+        <Button theme="bigWhiteFooter" text="LEGAL" />
+        <StringDropDown
+          content={LegalContent}
+          visibility
+          dropType="footerDrops"
+          theme="footerDrops"
+        />
       </div>
     </StyledFooter>
   );

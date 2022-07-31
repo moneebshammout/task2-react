@@ -23,7 +23,7 @@ function FilterDropDown({ showHiddenContentHandler, title }) {
     <StyledFilterVisibleContent onClick={toggleFilterClickHandler}>
       {title}
       <Icon
-        iconName={FilterDown ? 'HiOutlineChevronDown' : 'HiOutlineChevronRight'}
+        iconName={FilterDown ? 'HiChevronDown' : 'HiChevronRight'}
         color="black"
       />
     </StyledFilterVisibleContent>

@@ -42,12 +42,15 @@ Button.propTypes = {
     'bigBlue',
     'bigWhite',
     'bigWhiteBlue',
+    'bigWhiteFooter',
     'language',
     'smallBlack',
     'smallDesktopWhite',
     'smallFade',
     'smallDarkGrey',
     'smallWhite',
+    'loadMore',
+    'footerDrops',
   ]),
 };
 Button.defaultProps = {

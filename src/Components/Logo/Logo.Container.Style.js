@@ -12,15 +12,16 @@ const LogoContainer = styled.div`
       props.theme === 'desktopFooter'
         ? {
             display: 'flex',
-            height: '10rem',
+            height: '8rem',
             width: '4rem',
           }
         : null};
     ${(props) =>
       props.theme === 'desktopNav'
         ? {
-            height: '1.5rem',
-            width: '1.5rem',
+            height: '1.3rem',
+            'margin-left': '1rem',
+            width: '1rem',
           }
         : null};
   `}

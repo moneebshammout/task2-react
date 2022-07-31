@@ -4,13 +4,13 @@ import { media } from 'Styles/MediaQuery';
 import colors from 'Styles/Colors';
 
 const Option = styled.div`
-  min-width: 100%;
+  width: 95%;
   height: auto;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 400;
   box-sizing: border-box;
-  border: none;
   background-color: ${colors.white};
 
   ${(props) =>
@@ -33,17 +33,19 @@ const Option = styled.div`
   }
 `;
 const OptionContainer = styled.div`
-  width: 80%;
+  width: calc(78% + 1vw);
   max-height: 10rem;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: visible;
   box-sizing: border-box;
   position: absolute;
-  border: none;
-  margin-top: 1.2rem;
-  // TODO:Reached to option container border
+  white-space: nowrap;
+  border: solid;
+  border-radius: 0.25rem;
+  border-color: transparent;
+  margin-top: 1rem;
   /* border: 0.01rem solid rgba(0, , 0, 12); */
-  background-color: transparent;
+  background-color: white;
   ${media.desktop`
     width: 15%;
     height: auto;
@@ -53,7 +55,7 @@ const OptionContainer = styled.div`
 const StyledSelectMenu = styled.ul`
   display: block;
   ${media.phone`
-    width: 20rem;
+    width: inherit;
     height: 0.5rem;
     border-radius: 0.3rem;
     border-color: transparent;

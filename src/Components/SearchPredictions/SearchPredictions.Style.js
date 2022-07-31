@@ -18,6 +18,7 @@ const SearchPrediction = styled.div`
         : ''};
   `}
   ${media.desktop`
+  padding-left:10rem;
  `}
 `;
 export default SearchPrediction;

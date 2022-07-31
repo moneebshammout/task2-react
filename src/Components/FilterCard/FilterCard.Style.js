@@ -14,7 +14,8 @@ const StyledFilterCard = styled.div`
     border: 0.1rem solid #e3e3e3;
     box-shadow:0 0.1rem 0.5rem rgb(0 0 0 / 10%);
     min-width: 16rem;
-    width: 22rem;
+    width: calc(16rem+1vw) ;
+    margin-right:1rem;
     justify-content:center;
     justify-items:center;
     border-radius: 0.4rem;

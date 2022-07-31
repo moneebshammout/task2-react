@@ -8,13 +8,25 @@ const StyledStringDropDown = styled.div`
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    color: ${colors.white};
+    color: ${colors.red};
     border: none;
     padding-bottom: 1rem;
  `}
   ${media.desktop`
     ${(props) =>
       props.dropType === 'navDrops'
+        ? {
+            'align-items': 'center',
+            'background-color': 'white',
+            'border-radius': '0.5rem',
+            cursor: 'pointer',
+            'justify-content': 'center',
+            position: 'absolute',
+            width: '8rem',
+          }
+        : ''};
+    ${(props) =>
+      props.dropType === 'footerDrops'
         ? {
             'align-items': 'center',
             'background-color': 'white',

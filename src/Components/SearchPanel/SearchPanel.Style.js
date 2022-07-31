@@ -16,12 +16,12 @@ const StyledSearchPanel = styled.div`
     margin-bottom: 2.5rem;
  `}
   ${media.desktop`
-    width: 70%;
-    padding-left: 15rem;
-    padding-bottom: 3.7rem;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    bottom: 51%;
     z-index: 1;
+    justify-content:center;
+    justify-items:center;
+    align-items:center;
   `}
 `;
 export default StyledSearchPanel;

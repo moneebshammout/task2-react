@@ -37,7 +37,7 @@ function MovieCard({ title, description, date, imageURL, percentageRate }) {
           <Icon
             iconName="Hidots"
             onClick={iconClickHandler}
-            color="grey"
+            color="transparent"
             hoverEffect
           />
         </DesktopDots>
@@ -47,11 +47,13 @@ function MovieCard({ title, description, date, imageURL, percentageRate }) {
           
         </StyledMovieDropDownMEnu> */}
         <DesktopPercentage>{`${percentageRate * 10}%`}</DesktopPercentage>
-        <Image imagePath={imageURL} />
+        <Image imagePath={imageURL} className="poster" />
       </PosterContainer>
       <RightContainer>
-        <Title title={title} theme="moviesBold" />
-        <Title title={date} theme="smallLight" />
+        <div>
+          <Title title={title} theme="moviesBold" />
+          <Title title={date} theme="moviesLight" />
+        </div>
         <OverFlowContainer>{description}</OverFlowContainer>
       </RightContainer>
     </StyledMovieCard>

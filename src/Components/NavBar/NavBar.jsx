@@ -57,7 +57,6 @@ function NavBar() {
       <Header>
         <StyledNavBar>
           <Icon iconName="HiOutlineMenu" onClick={sideMenuClickHandler} />
-
           <LogoContainer logoType="phone" />
           <RightIconsWrapper>
             <Icon
@@ -101,7 +100,7 @@ function NavBar() {
                 />
               )}
             </div>
-            <Button text="En" theme="language" />
+            <Button text="EN" theme="language" />
             <Button text="Login" theme="smallDesktopWhite" />
             <Button text="Join TMDB" theme="smallDesktopWhite" />
             <Icon

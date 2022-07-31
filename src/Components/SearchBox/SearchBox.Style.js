@@ -12,7 +12,8 @@ const StyledSearchBox = styled.div`
     color: grey;
   `}
   ${media.desktop`
-    width: 120%;
+  width:95%;
+  padding-left:0.5rem;
   `}
 `;
 export default StyledSearchBox;

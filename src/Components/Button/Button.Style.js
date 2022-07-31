@@ -8,22 +8,27 @@ const bigWhite = css`
   width: 9rem;
   height: 2.5rem;
 `;
+const bigWhiteFooter = css`
+  ${bigWhite};
+  font-weight: 700;
+  font-size: 1.2rem;
+`;
 const bigWhiteBlue = css`
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   width: 14rem;
-  height: 2.5rem;
+  height: 2.8rem;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0 2rem 0;
-  border-radius: 0.5rem;
+  margin: 2rem 0 3rem 0;
+  border-radius: 0.2rem;
   color: ${colors.boldBlue};
   background-color: white;
 `;
 const smallFade = css`
+  ${bigWhite}
   font-size: 1rem;
-  opacity: 0.5;
-  font-weight: 600;
+  opacity: 0.55;
   padding-left: 0.5rem;
   padding-bottom: 0.7rem;
 `;
@@ -33,17 +38,17 @@ const smallWhite = css`
   padding-left: 0.5rem;
   padding-bottom: 0.7rem;
 `;
+const footerDrops = css`
+  ${smallWhite}
+  font-size:1.1rem;
+  padding-bottom: 0rem;
+`;
 const smallDesktopWhite = css`
-  font-size: 1rem;
+  ${smallWhite};
   font-weight: 600;
-  padding-left: 0.5rem;
-  padding-bottom: 0.7rem;
 `;
 const smallBlack = css`
-  font-size: 1rem;
-  font-weight: 400;
-  padding-left: 0.5rem;
-  padding-bottom: 0.7rem;
+  ${smallWhite};
   color: black;
 `;
 const smallDarkGrey = css`
@@ -60,21 +65,30 @@ const bigBlue = css`
   font-size: 1.2rem;
   background-color: ${(props) =>
     props.disabled ? colors.white : colors.lightBlue};
-  color: ${(props) => (props.disabled ? colors.lightGrey : colors.white)};
-  width: 90%;
-  height: 3rem;
+  color: ${(props) => (props.disabled ? `rgba(0,0,0,0.5)` : colors.white)};
+  width: 95%;
+  height: 2.8rem;
   justify-content: center;
   align-items: center;
-  line-height: 1rem;
   border: solid 1rem;
   border-color: transparent;
-  border-radius: 1rem;
-  margin: 0.5rem;
+  border-radius: 3rem;
+  margin: 1rem 0rem 3rem 0rem;
   cursor: pointer;
+  font-weight: 600;
+`;
+const loadMore = css`
+  ${bigBlue};
+  border-radius: 0.5rem;
+  height: 3.2rem;
+  font-size: 1.5rem;
+  margin: -2rem 0rem 1rem 0rem;
 `;
 const language = css`
   border: 0.1rem solid;
   border-color: white;
+  line-height: 1rem;
+  padding-top: 0.4rem;
   border-radius: 0.3rem;
   :hover {
     color: ${colors.darkBlue};
@@ -85,7 +99,10 @@ const themes = {
   bigBlue,
   bigWhite,
   bigWhiteBlue,
+  bigWhiteFooter,
+  footerDrops,
   language,
+  loadMore,
   smallBlack,
   smallDarkGrey,
   smallDesktopWhite,

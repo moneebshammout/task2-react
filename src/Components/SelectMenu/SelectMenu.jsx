@@ -33,12 +33,9 @@ function SelectMenu({ optionsList, selectMenuChangeHandler }) {
 
   const optionClickHandler = (event) => {
     const optionID = event.currentTarget.id;
+    if (optionID === selectTitle) return;
     setSelectTitle(optionID);
-    if (optionID !== optionsList[0]) {
-      selectMenuChangeHandler(optionID, true);
-    } else {
-      selectMenuChangeHandler(optionID, false);
-    }
+    selectMenuChangeHandler(optionID, true);
   };
 
   return (

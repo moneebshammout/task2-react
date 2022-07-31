@@ -96,9 +96,7 @@ const DesktopLeftWrapper = styled.span`
   flex-direction: row;
   width: 30rem;
   justify-content: space-between;
-  padding-right: 15rem;
-  z-index: 1;
-  position: relative;
+  padding-right: 20rem;
 `;
 
 export {

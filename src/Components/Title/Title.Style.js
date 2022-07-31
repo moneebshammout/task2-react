@@ -37,9 +37,22 @@ const smallBold = css`
   ${bold}
   font-size: 1rem;
 `;
+const moviesLight = css`
+  font-size: 0.8rem;
+  font-weight: 400;
+  opacity: 0.5;
+  ${media.desktop`
+   ${medium}
+    color: rgba(0, 0, 0, 6);
+ `}
+`;
 const moviesBold = css`
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
+  ${media.desktop`
+    font-weight:700;
+  `}
+
   cursor: pointer;
   :hover {
     color: ${colors.lightBlue};
@@ -58,6 +71,7 @@ const theme = {
   light,
   medium,
   moviesBold,
+  moviesLight,
   popularHeader,
   selectTitle,
   smallBold,

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { media } from 'Styles/MediaQuery';
-import colors from 'Styles/Colors';
 
 const DesktopDots = styled.div`
   ${media.phone`
@@ -9,7 +8,7 @@ const DesktopDots = styled.div`
   ${media.desktop`
     display: block;
     position: absolute;
-    top: 0;
+    top: 5%;
     right: 0;
     width: 2rem;
   `}
@@ -46,6 +45,7 @@ const MovieDropDownMenu = styled.div`
 const OverFlowContainer = styled.div`
   ${media.phone`
     font-size: 0.8rem;
+    font-weight:400;
     word-break: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -64,45 +64,70 @@ const OverFlowContainer = styled.div`
 const PosterContainer = styled.div`
   ${media.phone`
     display: flex;
-    height: 9rem;
-    min-height: 9rem;
-    width: 10rem;
+    height: 100%;
+    width: 6rem;
     min-width: 6rem;
- `}
+    border-color:transparent;
+    border-top-left-radius:5%;
+    border-bottom-left-radius:5%;
+    overflow:hidden;
+    `}
   ${media.desktop`
-    height: 16rem;
-    min-height: 16rem;
-    width: 11rem;
-    min-width: 11rem;
+    height: 80%;
+    width: 11.5rem;
+    .poster{
+      width:100%;
+    }
+    /* overflow:visible; */
+    
+    border-top-left-radius:0.5rem;
+    border-top-right-radius:0.5rem;
+    border-bottom-left-radius:0%;
     position: relative;
  `}
 `;
 
 const RightContainer = styled.div`
   ${media.phone`
-    display: block;
+    display: flex;
+    padding: 0rem 0rem 0rem 1rem ;
+    align-items: flex-start;
     flex-direction: column;
-    font-size: 0.8rem;
-    width: 11rem;
+    justify-content:space-evenly;
+    width: 65%;
+  `}
+
+  ${media.desktop`
+    display:flex;
+    flex-flow:row;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    justify-content:left;
+    height:1rem;
+    padding:0;
+    width:10rem;
   `}
 `;
 
 const StyledMovieCard = styled.div`
   ${media.phone`
-    height: auto;
+    height: 8rem;
     width: 90%;
     display: flex;
     flex-wrap: wrap;
-    border: solid 0.02rem;
-    border-color: ${colors.whiteGrey};
-    margin-bottom: 0.5rem;
+    flex-direction:row;
+    border: 0.1rem solid #e3e3e3;
+    box-shadow:0 0.1rem 0.5rem rgb(0 0 0 / 10%);
+    margin-bottom: 1rem;
   `}
 
   ${media.desktop`
-    margin: 1rem;
-    max-height: 20rem;
-    width: 17%;
-    border: none;
+  padding-bottom:0.7rem;
+   border: 0.1rem solid #e3e3e3;
+    box-shadow:0 0.1rem 0.5rem rgb(0 0 0 / 10%);
+    margin: 1rem 0rem 1rem 2rem;
+    height: 22rem;
+    width: 11.5rem;
     :hover {
       cursor: pointer;
     }

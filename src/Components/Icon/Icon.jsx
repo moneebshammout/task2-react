@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import {
   HiDotsCircleHorizontal,
   HiUser,
-  HiOutlineChevronDown,
-  HiOutlineChevronRight,
+  HiChevronDown,
+  HiChevronRight,
   HiOutlineMenu,
   HiOutlineTrendingUp,
   HiPlus,
@@ -13,13 +13,14 @@ import {
   HiSearch,
 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
+// import { TiChevronRight } from 'react-icons/ti';
 
 import StyledIcon from './Icon.Style';
 
 const icons = {
   AiOutlineClose: <AiOutlineClose />,
-  HiOutlineChevronDown: <HiOutlineChevronDown />,
-  HiOutlineChevronRight: <HiOutlineChevronRight />,
+  HiChevronDown: <HiChevronDown />,
+  HiChevronRight: <HiChevronRight />,
   HiOutlineMenu: <HiOutlineMenu />,
   HiOutlineTrendingUp: <HiOutlineTrendingUp />,
   HiPlus: <HiPlus />,
@@ -55,7 +56,14 @@ function Icon({ color, hoverEffect, iconName, id, onClick }) {
 
 Icon.propTypes = {
   // iconFamily: PropTypes.string.isRequired,
-  color: PropTypes.oneOf(['black', 'blue', 'grey', 'white', 'lightGrey']),
+  color: PropTypes.oneOf([
+    'black',
+    'blue',
+    'grey',
+    'white',
+    'lightGrey',
+    'transparent',
+  ]),
   hoverEffect: PropTypes.bool,
   iconName: PropTypes.string.isRequired,
   id: PropTypes.string,

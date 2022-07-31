@@ -19,6 +19,8 @@ const DesktopMoviesContainer = styled.div`
     flex-direction: row;
     box-sizing: border-box;
     height: auto;
+    flex:1;
+    padding-top: 1rem;    
     flex-wrap: wrap;
   `}
 `;

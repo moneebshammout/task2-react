@@ -242,7 +242,7 @@ function Body() {
         <br />
         <br />
         <Button
-          theme="bigBlue"
+          theme="loadMore"
           text="LoadMore"
           onClick={loadMoreClickHandler}
         />
