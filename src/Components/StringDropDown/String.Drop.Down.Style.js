@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 import { media } from 'Styles/MediaQuery';
 
-import colors from 'Styles/Colors';
-
 const StyledStringDropDown = styled.div`
   ${media.phone`
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    color: ${colors.red};
     border: none;
     padding-bottom: 1rem;
  `}
@@ -30,13 +27,9 @@ const StyledStringDropDown = styled.div`
     ${(props) =>
       props.dropType === 'footerDrops'
         ? {
-            'align-items': 'center',
-            'background-color': 'white',
-            'border-radius': '0.5rem',
-            cursor: 'pointer',
-            'justify-content': 'center',
-            position: 'absolute',
-            width: '8rem',
+            'align-items': 'left',
+            'background-color': 'transparent',
+            width: '10rem',
           }
         : ''};
   `}

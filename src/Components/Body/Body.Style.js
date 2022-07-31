@@ -5,22 +5,26 @@ import colors from 'Styles/Colors';
 
 const DesktopFiltersContainer = styled.div`
   ${media.desktop`
+  flex: 0 1 auto;
+  position:relative;
     display: flex;
     flex-direction: column;
     padding-left: 10rem;
-    width: 20%;
+    width: 18rem;
     padding-top: 1rem;
+    
   `}
 `;
 const DesktopMoviesContainer = styled.div`
   ${media.desktop`
     display: flex;
     width: 70%;
+    position:relative;
     flex-direction: row;
     box-sizing: border-box;
     height: auto;
     flex:1;
-    margin-left:-5rem;
+    margin-left:-1rem;
     padding-top: 3.5rem;  
       
     flex-wrap: wrap;
@@ -49,6 +53,9 @@ const StyledBody = styled.div`
   ${media.desktop`
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+ 
     padding-left:6rem;
   `};
 `;

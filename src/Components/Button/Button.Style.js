@@ -24,6 +24,12 @@ const bigWhiteBlue = css`
   border-radius: 0.2rem;
   color: ${colors.boldBlue};
   background-color: white;
+  ${media.desktop`
+    margin-left:-4rem;
+    margin-top:.2rem;
+  color: ${colors.lightBlue};
+
+    `}
 `;
 const smallFade = css`
   ${bigWhite}
@@ -66,7 +72,7 @@ const bigBlue = css`
   background-color: ${(props) =>
     props.disabled ? `rgba(0,0,0,0.1)` : colors.lightBlue};
   color: ${(props) => (props.disabled ? `rgba(0,0,0,0.5)` : colors.white)};
-  width: 95%;
+  width: 100%;
   height: 2.8rem;
   justify-content: center;
   align-items: center;
@@ -84,10 +90,15 @@ const bigBlue = css`
 `;
 const loadMore = css`
   ${bigBlue};
+
   border-radius: 0.5rem;
   height: 3.2rem;
   font-size: 1.5rem;
   margin: -2rem 0rem 1rem 0rem;
+  ${media.desktop`
+  margin: 1rem 0rem 1rem 2.5rem;
+  
+  `}
 `;
 const language = css`
   border: 0.1rem solid;

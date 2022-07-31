@@ -19,7 +19,7 @@ const DesktopPercentage = styled.div`
   `}
   ${media.desktop`
   border-radius: 50%;
-  border:solid 0.3rem;
+  border:solid 0.2rem;
   ${(props) =>
     props.percentage <= 5
       ? {
@@ -43,11 +43,11 @@ ${(props) =>
     bottom:-5%;
     left: 6%;
     background-color:black;
-    width: 2rem;
+    font-size:1rem;
     color: white;
     width: 2rem;
-    height: 2rem;
-    text-align: center;
+    height: 1.8rem;
+    align-content:center;
     font-weight: 700;
     padding: 0.2rem;
   `}
@@ -131,9 +131,9 @@ const RightContainer = styled.div`
 const StyledMovieCard = styled.div`
   ${media.phone`
     height: 8rem;
-    width: 90%;
+    width: 95%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction:row;
     border: 0.1rem solid #e3e3e3;
     box-shadow:0 0.1rem 0.5rem rgb(0 0 0 / 10%);
@@ -141,6 +141,7 @@ const StyledMovieCard = styled.div`
   `}
 
   ${media.desktop`
+  flex-wrap: wrap;
   padding-bottom:1.3rem;
    border: 0.1rem solid #e3e3e3;
     box-shadow:0 0.1rem 0.5rem rgb(0 0 0 / 10%);

@@ -7,6 +7,9 @@ const DesktopLeftSide = styled.div`
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+    width: 12rem;
+    margin-top:-5rem;
+
  `}
 `;
 const DesktopLogo = styled.div`
@@ -28,9 +31,11 @@ const StyledFooter = styled.footer`
   background-color: ${colors.darkBlue};
   ${media.desktop`
     {flex-direction: row;
-
     justify-content: center;
-    padding-top: 4rem;}
+    padding-top: 5rem;
+    padding-bottom:3.5rem;
+  
+  }
   `}
 `;
 

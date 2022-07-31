@@ -46,9 +46,9 @@ function MovieCard({ title, description, date, imageURL, percentageRate }) {
           <DropDownMenu visibility content={['aa','bb']} theme='smallBold' dropType='navDrops'/>
           
         </StyledMovieDropDownMEnu> */}
-        <DesktopPercentage percentage={percentageRate}>{`${
-          percentageRate * 10
-        }%`}</DesktopPercentage>
+        <DesktopPercentage percentage={percentageRate}>
+          &nbsp;{`${percentageRate * 10}%`}
+        </DesktopPercentage>
         <Image imagePath={imageURL} className="poster" />
       </PosterContainer>
       <RightContainer>
