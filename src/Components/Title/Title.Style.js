@@ -26,11 +26,10 @@ const popularHeader = css`
   ${media.phone`
     ${bold}
     padding-bottom:1.5rem;
+    
   `}
   ${media.desktop`
-    position: absolute;
-    top: 7%;
-    left: 10.5%;
+  
   `}
 `;
 const smallBold = css`

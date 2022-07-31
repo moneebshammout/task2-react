@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import FilterVisibleContent from 'Components/FilterVisibleContent/FilterVisibleContent';
+// eslint-disable-next-line no-unused-vars
 import StyledFilterCard from './FilterCard.Style';
 
 /**
@@ -23,6 +24,7 @@ function FilterCard({ children, onClick, title }) {
       <FilterVisibleContent
         title={title}
         showHiddenContentHandler={filterClickHandler}
+        showBorder={showCard}
       />
       {showCard && children}
     </StyledFilterCard>

@@ -64,7 +64,7 @@ const smallDarkGrey = css`
 const bigBlue = css`
   font-size: 1.2rem;
   background-color: ${(props) =>
-    props.disabled ? colors.white : colors.lightBlue};
+    props.disabled ? `rgba(0,0,0,0.1)` : colors.lightBlue};
   color: ${(props) => (props.disabled ? `rgba(0,0,0,0.5)` : colors.white)};
   width: 95%;
   height: 2.8rem;
@@ -76,6 +76,11 @@ const bigBlue = css`
   margin: 1rem 0rem 3rem 0rem;
   cursor: pointer;
   font-weight: 600;
+  ${media.desktop`
+  width:80%;
+  
+  
+  `}
 `;
 const loadMore = css`
   ${bigBlue};

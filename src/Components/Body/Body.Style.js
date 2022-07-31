@@ -20,7 +20,9 @@ const DesktopMoviesContainer = styled.div`
     box-sizing: border-box;
     height: auto;
     flex:1;
-    padding-top: 1rem;    
+    margin-left:-5rem;
+    padding-top: 3.5rem;  
+      
     flex-wrap: wrap;
   `}
 `;
@@ -47,6 +49,7 @@ const StyledBody = styled.div`
   ${media.desktop`
     flex-direction: row;
     flex-wrap: wrap;
+    padding-left:6rem;
   `};
 `;
 

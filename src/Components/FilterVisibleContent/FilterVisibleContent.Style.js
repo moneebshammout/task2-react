@@ -12,7 +12,6 @@ const StyledFilterDropDown = styled.div`
     justify-content: space-between;
     align-items: center;
     padding-right: 1rem;
-    margin-bottom: 1rem;
     font-size: 1.1rem;
     font-weight: 600;
     :active {
@@ -22,5 +21,21 @@ const StyledFilterDropDown = styled.div`
       background-color: ${colors.white};
     }
  `}
+  ${media.desktop`
+  height:3rem;
+  ${(props) =>
+    props.showBorder
+      ? {
+          border: 'solid',
+          'border-color': 'transparent',
+          'border-width': '0.1rem',
+          // eslint-disable-next-line sort-keys
+          'border-bottom-color': 'rgba(0,0,0,0.1)',
+        }
+      : ''}};
+  /* border:solid 0.1rem;
+  border-color:transparent;
+  border-bottom-color: rgba(0,0,0,0.2); */
+  `}
 `;
 export default StyledFilterDropDown;

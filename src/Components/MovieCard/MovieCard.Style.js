@@ -18,16 +18,35 @@ const DesktopPercentage = styled.div`
     display: none;
   `}
   ${media.desktop`
+  border-radius: 50%;
+  border:solid 0.3rem;
+  ${(props) =>
+    props.percentage <= 5
+      ? {
+          'border-color': 'red black black black',
+        }
+      : null};
+${(props) =>
+  props.percentage > 5
+    ? {
+        'border-color': 'yellow yellow yellow black',
+      }
+    : null};
+${(props) =>
+  props.percentage >= 7
+    ? {
+        'border-color': 'green green green black',
+      }
+    : null};
     position: absolute;
     display: block;
-    bottom: -5%;
+    bottom:-5%;
     left: 6%;
+    background-color:black;
     width: 2rem;
     color: white;
-    border-radius: 50%;
     width: 2rem;
     height: 2rem;
-    background-color: black;
     text-align: center;
     font-weight: 700;
     padding: 0.2rem;
@@ -70,7 +89,6 @@ const PosterContainer = styled.div`
     border-color:transparent;
     border-top-left-radius:5%;
     border-bottom-left-radius:5%;
-    overflow:hidden;
     `}
   ${media.desktop`
     height: 80%;
@@ -105,6 +123,7 @@ const RightContainer = styled.div`
     justify-content:left;
     height:1rem;
     padding:0;
+    padding-left:1rem;
     width:10rem;
   `}
 `;
@@ -122,10 +141,13 @@ const StyledMovieCard = styled.div`
   `}
 
   ${media.desktop`
-  padding-bottom:0.7rem;
+  padding-bottom:1.3rem;
    border: 0.1rem solid #e3e3e3;
     box-shadow:0 0.1rem 0.5rem rgb(0 0 0 / 10%);
     margin: 1rem 0rem 1rem 2rem;
+    border-top-left-radius:1rem;
+    border-top-right-radius:1rem;
+    border-bottom-left-radius:0%;
     height: 22rem;
     width: 11.5rem;
     :hover {

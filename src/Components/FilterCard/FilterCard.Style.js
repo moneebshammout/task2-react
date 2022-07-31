@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import { media } from 'Styles/MediaQuery';
 
-// import colors from 'Styles/Colors';
-
 const StyledFilterCard = styled.div`
+  cursor: pointer;
   ${media.phone`
     display: flex;
     flex-direction: column;
@@ -24,6 +23,8 @@ const StyledFilterCard = styled.div`
     overflow: hidden;
   `}
   ${media.desktop`
+   width:calc(16rem + 1vw);
+
   `}
 `;
 export default StyledFilterCard;

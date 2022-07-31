@@ -44,16 +44,16 @@ const OptionContainer = styled.div`
   border-radius: 0.25rem;
   border-color: transparent;
   margin-top: 1rem;
-  /* border: 0.01rem solid rgba(0, , 0, 12); */
   background-color: white;
   ${media.desktop`
-    width: 15%;
+  width: 13rem;
     height: auto;
   `}
 `;
 
 const StyledSelectMenu = styled.ul`
   display: block;
+  cursor: pointer;
   ${media.phone`
     width: inherit;
     height: 0.5rem;

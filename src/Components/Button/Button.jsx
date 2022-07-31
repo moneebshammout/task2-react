@@ -15,16 +15,10 @@ import StyledButton from './Button.Style';
  */
 
 function Button({ text, theme, disabled, onClick, onHover }) {
-  if (disabled) {
-    return (
-      <StyledButton theme={theme} onClick={onClick} disabled>
-        {text}
-      </StyledButton>
-    );
-  }
   return (
     <StyledButton
       theme={theme}
+      disabled={disabled ? true : null}
       onClick={onClick}
       onMouseOver={onHover}
       onMouseOut={onHover}

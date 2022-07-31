@@ -5,6 +5,7 @@ const LogoContainer = styled.div`
   ${media.phone`
     width: 3rem;
     height: 4.6rem;
+    display:flex;
   `}
   ${media.desktop`
     display: flex;
