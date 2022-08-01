@@ -46,60 +46,63 @@ function DesktopMenu() {
           theme="smallDesktopWhite"
           text="Movies"
           onHover={() => onHoverHandler('movies')}
+          onBlur={() => onHoverHandler('movies')}
         />
-        {showState.movies && (
-          <DropDownMenu
-            visibility
-            content={moviesContent}
-            theme="smallBlack"
-            dropType="navDrops"
-          />
-        )}
+
+        <DropDownMenu
+          visibility={showState.movies}
+          onHover={() => onHoverHandler('movies')}
+          onBlur={() => onHoverHandler('movies')}
+          content={moviesContent}
+          theme="navDrops"
+          dropType="navDrops"
+        />
       </div>
       <div>
         <Button
           theme="smallDesktopWhite"
           text="TV Shows"
           onHover={() => onHoverHandler('tv')}
+          onBlur={() => onHoverHandler('tv')}
         />
-        {showState.tv && (
-          <DropDownMenu
-            visibility
-            content={tvContent}
-            theme="smallBlack"
-            dropType="navDrops"
-          />
-        )}
+        <DropDownMenu
+          visibility={showState.tv}
+          content={tvContent}
+          theme="navDrops"
+          dropType="navDrops"
+        />
       </div>
+      &nbsp;&nbsp;
       <div>
         <Button
           theme="smallDesktopWhite"
           text="People"
           onHover={() => onHoverHandler('people')}
+          onBlur={() => onHoverHandler('people')}
         />
-        {showState.people && (
-          <DropDownMenu
-            visibility
-            theme="smallBlack"
-            content={peopleContent}
-            dropType="navDrops"
-          />
-        )}
+
+        <DropDownMenu
+          visibility={showState.people}
+          theme="navDrops"
+          content={peopleContent}
+          dropType="navDrops"
+        />
       </div>
+      &nbsp;&nbsp;
       <div>
         <Button
           theme="smallDesktopWhite"
           text="More"
           onHover={() => onHoverHandler('more')}
+          onBlur={() => onHoverHandler('more')}
         />
-        {showState.more && (
-          <DropDownMenu
-            visibility
-            theme="smallBlack"
-            content={visibleContent}
-            dropType="navDrops"
-          />
-        )}
+
+        <DropDownMenu
+          visibility={showState.more}
+          theme="navDrops"
+          content={visibleContent}
+          dropType="navDrops"
+        />
       </div>
     </StyledDesktopMenu>
   );

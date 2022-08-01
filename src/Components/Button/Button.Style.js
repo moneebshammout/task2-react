@@ -57,6 +57,15 @@ const smallBlack = css`
   ${smallWhite};
   color: black;
 `;
+const navDrops = css`
+  ${smallBlack};
+  width: 100%;
+  cursor: pointer;
+  text-indent: 1rem;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+`;
 const smallDarkGrey = css`
   font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.6);
@@ -109,14 +118,19 @@ const loadMore = css`
   ${media.desktop`
   margin: 1rem 0rem 1rem 2.5rem;
   width:81%;
+  &:hover{
+    color:black;
+  }
   `}
 `;
 const language = css`
   border: 0.1rem solid;
   border-color: white;
+  font-weight: 600;
   line-height: 1rem;
-  padding-top: 0.4rem;
-  border-radius: 0.3rem;
+  padding-top: 0.25rem;
+  border-radius: 0.2rem;
+  height: 1.7rem;
   :hover {
     color: ${colors.darkBlue};
     background-color: white;
@@ -131,6 +145,7 @@ const themes = {
   language,
   loadMore,
   movieDropDown,
+  navDrops,
   smallBlack,
   smallDarkGrey,
   smallDesktopWhite,

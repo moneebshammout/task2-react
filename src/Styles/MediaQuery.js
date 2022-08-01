@@ -1,18 +1,11 @@
 import { css } from 'styled-components';
 
 export const breakpoint = {
-  desktop: '50rem',
+  desktop: '65rem',
   phone: '0rem',
 };
 
 export const media = {
-  // ns = not small
-  // ns: (...args) =>
-  //   css`
-  //     @media screen and (min-width: ${breakpoint.phone}) {
-  //       ${css(...args)}
-  //     }
-  //   `,
   desktop: (...args) =>
     css`
       @media screen and (min-width: ${breakpoint.desktop}) {

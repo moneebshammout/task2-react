@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { media } from 'Styles/MediaQuery';
+import colors from 'Styles/Colors';
 
 const DesktopDots = styled.div`
   ${media.phone`
@@ -52,7 +53,8 @@ ${(props) =>
     align-content:center;
     font-weight: 700;
     padding: 0.2rem;
-    &*{
+    
+    *{
       display:inline;
     }
     .icon{
@@ -153,13 +155,28 @@ const RightContainer = styled.div`
     flex-wrap:wrap;
     align-items:flex-start;
     justify-content:left;
+    line-height:1rem;
     height:1rem;
     padding:0;
     padding-left:1rem;
     width:10rem;
   `}
 `;
+const ToolTip = styled.span`
+  visibility: hidden;
+  width: 10.5rem;
+  background-color: ${colors.black};
+  color: ${colors.white};
+  text-align: center;
+  padding: 0.4rem 0;
+  border: 0.1rem solid white;
 
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  left: 2.5%;
+  top: 50%;
+`;
 const StyledMovieCard = styled.div`
   ${media.phone`
     height: 8rem;
@@ -177,10 +194,13 @@ const StyledMovieCard = styled.div`
   flex-wrap: wrap;
   padding-bottom:1.3rem;
     margin: 1rem 0rem 1rem 2rem;
-    height: 22rem;
+    height: 22.5rem;
     width: 11.5rem;
     :hover {
       cursor: pointer;
+    }
+    &:hover .toolTip{
+      visibility: visible;
     }
     ${(props) =>
       props.blur
@@ -199,4 +219,5 @@ export {
   DesktopPercentage,
   DesktopDots,
   OverFlowContainer,
+  ToolTip,
 };

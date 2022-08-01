@@ -45,6 +45,9 @@ const RightIconsWrapper = styled.span`
     :last-child {
       padding-right: 0;
     }
+    &:nth-child(2){
+      padding-top:0.5rem;
+    }
     width: 20rem;
     justify-content: space-between;
  `}
@@ -60,6 +63,14 @@ const DesktopNavBar = styled.nav`
     height: 4rem;
     position: relative;
     align-items: center;
+    .plus{
+      font-size:1rem;
+      margin-top:0.4rem;
+    }
+    .search{
+      font-size:1.8rem;
+    }
+
     justify-content: space-evenly;
     
   `}
@@ -70,6 +81,7 @@ const DesktopLeftWrapper = styled.span`
   width: 30rem;
   justify-content: space-between;
   padding-right: 20rem;
+  margin-top: 1rem;
 `;
 
 export {

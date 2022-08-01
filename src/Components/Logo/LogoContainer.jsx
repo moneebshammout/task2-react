@@ -8,10 +8,10 @@ import { desktopLogo } from 'Constants/URL';
 import StyledLogoContainer from './Logo.Container.Style';
 
 /**
- *  Create Logo Container with Logo inside
+ *  Create Logo Container with Logo inside.
  * @param {object} props   Component variables.
- * @param {String} props.logoType phone or mobile
- * @param {String} props.theme theme type
+ * @param {String} props.logoType Phone or mobile.
+ * @param {String} props.theme Theme type.
  * @return {JSX}  LogoContainer.
  */
 

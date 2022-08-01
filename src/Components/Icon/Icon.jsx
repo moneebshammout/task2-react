@@ -8,23 +8,23 @@ import {
   HiChevronRight,
   HiOutlineMenu,
   HiOutlineTrendingUp,
-  HiPlus,
   HiQuestionMarkCircle,
   HiSearch,
 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { CgMathPercent } from 'react-icons/cg';
+import { BiPlusMedical } from 'react-icons/bi';
 // import { TiChevronRight } from 'react-icons/ti';
 
 import StyledIcon from './Icon.Style';
 
 const icons = {
   AiOutlineClose: <AiOutlineClose />,
+  BiPlus: <BiPlusMedical />,
   HiChevronDown: <HiChevronDown />,
   HiChevronRight: <HiChevronRight />,
   HiOutlineMenu: <HiOutlineMenu />,
   HiOutlineTrendingUp: <HiOutlineTrendingUp />,
-  HiPlus: <HiPlus />,
   HiQuestion: <HiQuestionMarkCircle />,
   HiSearch: <HiSearch />,
   HiUser: <HiUser />,

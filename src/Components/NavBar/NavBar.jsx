@@ -84,9 +84,10 @@ function NavBar() {
           <RightIconsWrapper>
             <div>
               <Icon
-                iconName="HiPlus"
+                iconName="BiPlus"
                 color="white"
                 onClick={plusClickHandler}
+                className="plus"
               />
               {showPlusDrop && (
                 <DropDownMenu
@@ -107,6 +108,7 @@ function NavBar() {
               iconName={showSearch ? 'AiOutlineClose' : 'HiSearch'}
               color={showSearch ? 'white' : 'blue'}
               onClick={searchIconClickHandler}
+              className="search"
             />
           </RightIconsWrapper>
         </DesktopNavBar>

@@ -10,6 +10,7 @@ const StyledStringDropDown = styled.div`
     padding-bottom: 1rem;
  `}
   ${media.desktop`
+  cursor: pointer;
     ${(props) =>
       props.dropType === 'navDrops'
         ? {
@@ -18,7 +19,6 @@ const StyledStringDropDown = styled.div`
             border: '0.1rem solid #e3e3e3',
             'border-radius': '0.5rem',
             'box-shadow': '0 0.1rem 0.5rem rgb(0 0 0 / 10%)',
-            cursor: 'pointer',
             'justify-content': 'center',
             position: 'absolute',
             width: '10rem',

@@ -15,6 +15,7 @@ import {
   RightContainer,
   StyledMovieCard,
   MovieDropDownMenu,
+  ToolTip,
 } from './MovieCard.Style';
 
 /**
@@ -57,6 +58,7 @@ function MovieCard({ title, description, date, imageURL, percentageRate }) {
       </MovieDropDownMenu>
       <StyledMovieCard blur={blur}>
         <PosterContainer>
+          <ToolTip className="toolTip">{title}</ToolTip>
           <DesktopDots>
             <Icon
               iconName="Hidots"

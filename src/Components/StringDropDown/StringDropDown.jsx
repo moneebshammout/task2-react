@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from 'Components/Button/Button';
@@ -16,9 +16,31 @@ import StyledStringDropDown from './String.Drop.Down.Style';
  */
 
 function StringDropDown({ content, dropType, theme, visibility }) {
+  const [visible, setVisible] = useState(false);
+
+  /**
+   *  Hides menu when mouse out.
+   */
+
+  const onBlurHandler = () => {
+    setVisible(false);
+  };
+
+  /**
+   *  Shows menu when mouse over.
+   */
+
+  const onHoverHandler = () => {
+    setVisible(true);
+  };
+
   return (
-    visibility && (
-      <StyledStringDropDown dropType={dropType}>
+    (visibility || visible) && (
+      <StyledStringDropDown
+        dropType={dropType}
+        onMouseLeave={onBlurHandler}
+        onMouseOver={onHoverHandler}
+      >
         {content.map((sentence) => (
           <Button key={sentence} text={sentence} theme={theme} />
         ))}

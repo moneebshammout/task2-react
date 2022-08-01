@@ -8,6 +8,7 @@ import StyledButton from './Button.Style';
  * @param {object} props   Component variables.
  * @param {boolean} props.disabled  Button state enabled or disabled.
  * @param {element} props.children  Button Children.
+ * @param {Function} props.onBlur onBlur event handler.
  * @param {Function} props.onClick OnClick event handler.
  * @param {Function} props.onHover OnHover event handler.
  * @param {string} props.text    Text inside the button.
@@ -15,14 +16,14 @@ import StyledButton from './Button.Style';
  * @return {JSX}  Button component.
  */
 
-function Button({ children, text, theme, disabled, onClick, onHover }) {
+function Button({ children, text, theme, disabled, onBlur, onClick, onHover }) {
   return (
     <StyledButton
       theme={theme}
       disabled={disabled ? true : null}
       onClick={onClick}
       onMouseOver={onHover}
-      onMouseOut={onHover}
+      onMouseOut={onBlur}
     >
       {text}
       {children}
@@ -32,6 +33,7 @@ function Button({ children, text, theme, disabled, onClick, onHover }) {
 Button.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
   disabled: PropTypes.bool,
+  onBlur: PropTypes.func,
   onClick: PropTypes.func,
   onHover: PropTypes.func,
   text: PropTypes.string.isRequired,
@@ -53,6 +55,7 @@ Button.propTypes = {
 Button.defaultProps = {
   children: [],
   disabled: false,
+  onBlur: null,
   onClick: null,
   onHover: null,
   theme: 'bigWhite',

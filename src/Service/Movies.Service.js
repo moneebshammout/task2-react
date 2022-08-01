@@ -10,7 +10,7 @@ import Movie from 'Model/Movie';
  */ const fetchMovies = async (pageNumber, sortQuery) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/discover/movie/?api_key=1ed03abf259db3275f034b5a5abe9f9e&language=en-US&page=${pageNumber}&sort_by=${sortQuery}`
+      `https://api.themoviedb.org/3/discover/movie/?api_key=1ed03abf259db3275f034b5a5abe9f9e&language=en-US&sort_by=${sortQuery}&page=${pageNumber}`
     );
     return response;
   } catch (error) {

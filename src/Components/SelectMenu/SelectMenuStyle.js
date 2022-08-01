@@ -72,6 +72,8 @@ const StyledSelectMenu = styled.ul`
     background-position: right 0.1rem center;
   `}
   ${media.desktop`
+  background-color: ${colors.mediumGrey};
+
     width: 80%;
   `}
 `;
