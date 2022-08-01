@@ -7,6 +7,7 @@ import StyledButton from './Button.Style';
  * Create Button component depending on the theme chosen.
  * @param {object} props   Component variables.
  * @param {boolean} props.disabled  Button state enabled or disabled.
+ * @param {element} props.children  Button Children.
  * @param {Function} props.onClick OnClick event handler.
  * @param {Function} props.onHover OnHover event handler.
  * @param {string} props.text    Text inside the button.
@@ -14,7 +15,7 @@ import StyledButton from './Button.Style';
  * @return {JSX}  Button component.
  */
 
-function Button({ text, theme, disabled, onClick, onHover }) {
+function Button({ children, text, theme, disabled, onClick, onHover }) {
   return (
     <StyledButton
       theme={theme}
@@ -24,10 +25,12 @@ function Button({ text, theme, disabled, onClick, onHover }) {
       onMouseOut={onHover}
     >
       {text}
+      {children}
     </StyledButton>
   );
 }
 Button.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element),
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   onHover: PropTypes.func,
@@ -48,6 +51,7 @@ Button.propTypes = {
   ]),
 };
 Button.defaultProps = {
+  children: [],
   disabled: false,
   onClick: null,
   onHover: null,

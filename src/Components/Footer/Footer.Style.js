@@ -32,8 +32,9 @@ const StyledFooter = styled.footer`
   ${media.desktop`
     {flex-direction: row;
     justify-content: center;
-    padding-top: 5rem;
-    padding-bottom:3.5rem;
+    /* padding-top: 5rem; */
+    padding:5rem 0rem 3.5rem 6rem;
+    /* padding-bottom:3.5rem; */
   
   }
   `}

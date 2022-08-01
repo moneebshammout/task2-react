@@ -49,35 +49,7 @@ const RightIconsWrapper = styled.span`
     justify-content: space-between;
  `}
 `;
-const UserUtilities = styled.div`
-  ${media.phone`
-    background-color: ${colors.white};
-    bottom: 82.5%;
-    left: 51.5%;
-    z-index:1;
-    display: block !important;
-    flex-direction: column;
-    position: fixed;
-    width: 12rem;
-    height: 6rem;
-    border: solid 0.01rem  rgba(33,37,41,0.15);
-    justify-content: space-between;
-    border-radius: 0.3rem;
-    > * {
-      &:first-child {
-        border-bottom: solid 0.001rem rgba(33,37,41,0.15);
-      }
-      &:first-child:hover {
-        background-color: ${colors.darkBlue};
-        color: ${colors.white};
-      }
-      &:nth-child(2):hover {
-        background-color: ${colors.darkBlue};
-        color: ${colors.white};
-      }
-    }
-  `}
-`;
+
 const DesktopNavBar = styled.nav`
   ${media.phone`
     display: none;
@@ -104,7 +76,6 @@ export {
   Header,
   StyledNavBar,
   RightIconsWrapper,
-  UserUtilities,
   DesktopNavBar,
   DesktopLeftWrapper,
 };

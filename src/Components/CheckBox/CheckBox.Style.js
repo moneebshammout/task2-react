@@ -8,9 +8,6 @@ const Label = styled.label`
   padding-left: 2rem;
   cursor: pointer;
   font-size: 1.2rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   font-weight: ${(props) => (props.checked ? '600' : '300')};
 `;

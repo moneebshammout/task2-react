@@ -39,7 +39,9 @@ ${(props) =>
       }
     : null};
     position: absolute;
-    display: block;
+    display: flex;
+    flex-direction:row;
+
     bottom:-5%;
     left: 6%;
     background-color:black;
@@ -50,15 +52,38 @@ ${(props) =>
     align-content:center;
     font-weight: 700;
     padding: 0.2rem;
+    &*{
+      display:inline;
+    }
+    .icon{
+      font-size:0.7rem;
+    }
   `}
 `;
 const MovieDropDownMenu = styled.div`
+  display: none;
+
   ${media.desktop`
-    position: absolute;
-    top: 10%;
-    left: 0%;
+    position: relative;
+    text-align:left !important;
+    align-items:left !important;
+    align-content:left !important;
+    justify-content:left !important;
+    justify-items:left !important;
+    align-items:left !important;
+    display:block;
+    z-index:1;
+    top: 50%;
+    bottom:70%;
+    left: 10%;
     font-size: 1rem;
     width: 2rem;
+    .movieSignup{
+      display:block;
+      position:absolute;
+      right:10%;
+      margin-top:-1.2rem;
+    }
  `}
 `;
 const OverFlowContainer = styled.div`
@@ -79,7 +104,15 @@ const OverFlowContainer = styled.div`
     display: none;
   `}
 `;
-
+const phoneRoundedBorder = {
+  'border-bottom-left-radius': '0.4rem',
+  'border-top-left-radius': '0.4rem',
+};
+const desktopRoundedBorder = {
+  'border-bottom-left-radius': '0%',
+  'border-top-left-radius': '0.5rem',
+  'border-top-right-radius': '0.5rem',
+};
 const PosterContainer = styled.div`
   ${media.phone`
     display: flex;
@@ -87,20 +120,19 @@ const PosterContainer = styled.div`
     width: 6rem;
     min-width: 6rem;
     border-color:transparent;
-    border-top-left-radius:5%;
-    border-bottom-left-radius:5%;
+    ${phoneRoundedBorder};
+    .poster{
+      ${phoneRoundedBorder};
+    }
     `}
   ${media.desktop`
     height: 80%;
     width: 11.5rem;
     .poster{
       width:100%;
+    ${desktopRoundedBorder};
     }
-    /* overflow:visible; */
-    
-    border-top-left-radius:0.5rem;
-    border-top-right-radius:0.5rem;
-    border-bottom-left-radius:0%;
+    ${desktopRoundedBorder}
     position: relative;
  `}
 `;
@@ -131,6 +163,7 @@ const RightContainer = styled.div`
 const StyledMovieCard = styled.div`
   ${media.phone`
     height: 8rem;
+    border-radius:0.8rem;
     width: 95%;
     display: flex;
     flex-wrap: nowrap;
@@ -143,12 +176,7 @@ const StyledMovieCard = styled.div`
   ${media.desktop`
   flex-wrap: wrap;
   padding-bottom:1.3rem;
-   border: 0.1rem solid #e3e3e3;
-    box-shadow:0 0.1rem 0.5rem rgb(0 0 0 / 10%);
     margin: 1rem 0rem 1rem 2rem;
-    border-top-left-radius:1rem;
-    border-top-right-radius:1rem;
-    border-bottom-left-radius:0%;
     height: 22rem;
     width: 11.5rem;
     :hover {
@@ -157,8 +185,8 @@ const StyledMovieCard = styled.div`
     ${(props) =>
       props.blur
         ? {
-            '-webkit-filter': `blur(0.3rem)`,
-            filter: `blur(0.3rem)`,
+            '-webkit-filter': `blur(0.7rem)`,
+            filter: `blur(0.7rem)`,
           }
         : null};
   `}

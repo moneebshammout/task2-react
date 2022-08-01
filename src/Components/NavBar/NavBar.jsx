@@ -7,12 +7,12 @@ import Button from 'Components/Button/Button';
 import SearchPanel from 'Components/SearchPanel/SearchPanel';
 import DesktopMenu from 'Components/DesktopMenu/DesktopMenu';
 import DropDownMenu from 'Components/StringDropDown/StringDropDown';
+import UserUtilities from 'Components/ActionDropDown/ActionDropDown';
 
 import {
   Header,
   StyledNavBar,
   RightIconsWrapper,
-  UserUtilities,
   DesktopLeftWrapper,
   DesktopNavBar,
 } from './NavBar.Style';

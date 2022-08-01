@@ -13,6 +13,7 @@ import {
   HiSearch,
 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
+import { CgMathPercent } from 'react-icons/cg';
 // import { TiChevronRight } from 'react-icons/ti';
 
 import StyledIcon from './Icon.Style';
@@ -28,11 +29,13 @@ const icons = {
   HiSearch: <HiSearch />,
   HiUser: <HiUser />,
   Hidots: <HiDotsCircleHorizontal />,
+  percent: <CgMathPercent />,
 };
 
 /**
  *  Create Icon component.
  * @param {object} props   Component variables.
+ * @param {string} props.className Class name for css.
  * @param {string} props.color Name of icon color.
  * @param {Boolean} props.hoverEffect  Gives icon hover effect.
  * @param {string} props.iconName   name of the icon.
@@ -41,13 +44,14 @@ const icons = {
  * @return {JSX}  Icon.
  */
 
-function Icon({ color, hoverEffect, iconName, id, onClick }) {
+function Icon({ className, color, hoverEffect, iconName, id, onClick }) {
   return (
     <StyledIcon
       theme={color}
       onClick={onClick}
       id={id}
       hoverEffect={hoverEffect}
+      className={className}
     >
       {icons[iconName]}
     </StyledIcon>
@@ -56,6 +60,7 @@ function Icon({ color, hoverEffect, iconName, id, onClick }) {
 
 Icon.propTypes = {
   // iconFamily: PropTypes.string.isRequired,
+  className: PropTypes.string,
   color: PropTypes.oneOf([
     'black',
     'blue',
@@ -71,6 +76,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
+  className: '',
   color: 'white',
   hoverEffect: false,
   id: '',

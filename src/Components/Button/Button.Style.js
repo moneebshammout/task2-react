@@ -59,7 +59,7 @@ const smallBlack = css`
 `;
 const smallDarkGrey = css`
   font-size: 0.8rem;
-  color: black;
+  color: rgba(0, 0, 0, 0.6);
   font-weight: 600;
   width: 100%;
   height: 3rem;
@@ -67,12 +67,23 @@ const smallDarkGrey = css`
   text-indent: -6rem;
   display: block !important;
 `;
+const movieDropDown = css`
+  ${smallDarkGrey};
+  display: inline;
+  text-indent: -0.2rem;
+  text-align: left !important;
+  align-items: left !important;
+  align-content: left !important;
+  justify-content: left !important;
+  justify-items: left !important;
+  align-items: left !important;
+`;
 const bigBlue = css`
   font-size: 1.2rem;
   background-color: ${(props) =>
     props.disabled ? `rgba(0,0,0,0.1)` : colors.lightBlue};
   color: ${(props) => (props.disabled ? `rgba(0,0,0,0.5)` : colors.white)};
-  width: 100%;
+  width: 95%;
   height: 2.8rem;
   justify-content: center;
   align-items: center;
@@ -82,11 +93,11 @@ const bigBlue = css`
   margin: 1rem 0rem 3rem 0rem;
   cursor: pointer;
   font-weight: 600;
-  ${media.desktop`
-  width:80%;
+  /* ${media.desktop`
+  width:95%;
   
   
-  `}
+  `} */
 `;
 const loadMore = css`
   ${bigBlue};
@@ -97,7 +108,7 @@ const loadMore = css`
   margin: -2rem 0rem 1rem 0rem;
   ${media.desktop`
   margin: 1rem 0rem 1rem 2.5rem;
-  
+  width:81%;
   `}
 `;
 const language = css`
@@ -119,6 +130,7 @@ const themes = {
   footerDrops,
   language,
   loadMore,
+  movieDropDown,
   smallBlack,
   smallDarkGrey,
   smallDesktopWhite,
